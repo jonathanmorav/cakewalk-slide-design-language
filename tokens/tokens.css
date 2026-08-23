@@ -1,0 +1,166 @@
+/* Cakewalk slide-deck brand tokens.
+   GENERATED from tokens.json — run `node tokens/gen-css.mjs` after editing.
+   Naming mirrors the product design system (--cw-v2-color-*) so these values can
+   be dropped into a Cakewalk app without translation. */
+
+:root {
+  /* Core colour */
+  --cw-v2-color-ink: #1A1A2E;
+  --cw-v2-color-ink-elevated: #22223A;
+  --cw-v2-color-letter-white: #FFFFFF;
+  --cw-v2-color-sidewalk: #F3F3F0;
+  --cw-v2-color-cream: #FBF8F2;
+  --cw-v2-color-warm-blush: #F5DDD6;
+  --cw-v2-color-border: #D5D5CA;
+  --cw-v2-color-divider: #A0A0B0;
+  --cw-v2-color-text-muted: #70707F;
+  --cw-v2-color-text-subtle: #737385;
+  --cw-v2-color-text-light: #9292A3;
+  --cw-v2-color-text-caption: #6E6E80;
+  --cw-v2-color-primary: #E8735A;
+  --cw-v2-color-primary-hover: #C5624D;
+  --cw-v2-color-accent: #3590F3;
+  --cw-v2-color-success: #4CAF82;
+  --cw-v2-color-warning: #FFD166;
+  --cw-v2-color-danger: #DC2626;
+  --cw-v2-color-focus: #3590F3;
+  --cw-v2-color-mint: #92E7E5;
+  --cw-v2-color-sunny: #FFD166;
+  --cw-v2-color-purple: #8D63E0;
+  --cw-v2-color-band-mint: #4CE0C6;
+  --cw-v2-color-band-blue: #5594FF;
+  --cw-v2-color-band-purple: #9966FF;
+
+  /* coral ramp */
+  --cw-v2-color-coral-50: #FCEAE6;
+  --cw-v2-color-coral-100: #F8D5CE;
+  --cw-v2-color-coral-200: #F4B9AD;
+  --cw-v2-color-coral-300: #EF9D8C;
+  --cw-v2-color-coral-400: #EA816B;
+  --cw-v2-color-coral-500: #E8735A;
+  --cw-v2-color-coral-600: #C5624D;
+  --cw-v2-color-coral-700: #A2513F;
+  --cw-v2-color-coral-800: #743A2D;
+  --cw-v2-color-coral-900: #46231B;
+
+  /* blue ramp */
+  --cw-v2-color-blue-50: #E1EEFD;
+  --cw-v2-color-blue-100: #C2DEFB;
+  --cw-v2-color-blue-200: #9AC8F9;
+  --cw-v2-color-blue-300: #72B1F7;
+  --cw-v2-color-blue-400: #499BF4;
+  --cw-v2-color-blue-500: #3590F3;
+  --cw-v2-color-blue-600: #2D7ACF;
+  --cw-v2-color-blue-700: #2565AA;
+  --cw-v2-color-blue-800: #1B487A;
+  --cw-v2-color-blue-900: #102B49;
+
+  /* mint ramp */
+  --cw-v2-color-mint-50: #EFFBFB;
+  --cw-v2-color-mint-100: #DEF8F7;
+  --cw-v2-color-mint-200: #C9F3F2;
+  --cw-v2-color-mint-300: #B3EEED;
+  --cw-v2-color-mint-400: #9DE9E8;
+  --cw-v2-color-mint-500: #92E7E5;
+  --cw-v2-color-mint-600: #7CC4C3;
+  --cw-v2-color-mint-700: #66A2A0;
+  --cw-v2-color-mint-800: #497472;
+  --cw-v2-color-mint-900: #2C4545;
+
+  /* sunny ramp */
+  --cw-v2-color-sunny-50: #FFF8E8;
+  --cw-v2-color-sunny-100: #FFF1D1;
+  --cw-v2-color-sunny-200: #FFE8B3;
+  --cw-v2-color-sunny-300: #FFDF94;
+  --cw-v2-color-sunny-400: #FFD675;
+  --cw-v2-color-sunny-500: #FFD166;
+  --cw-v2-color-sunny-600: #D9B257;
+  --cw-v2-color-sunny-700: #B39247;
+  --cw-v2-color-sunny-800: #806933;
+  --cw-v2-color-sunny-900: #4D3F1F;
+
+  /* green ramp */
+  --cw-v2-color-green-50: #E4F3EC;
+  --cw-v2-color-green-100: #C9E7DA;
+  --cw-v2-color-green-200: #A5D7C1;
+  --cw-v2-color-green-300: #82C7A8;
+  --cw-v2-color-green-400: #5EB78F;
+  --cw-v2-color-green-500: #4CAF82;
+  --cw-v2-color-green-600: #41956F;
+  --cw-v2-color-green-700: #357A5B;
+  --cw-v2-color-green-800: #265741;
+  --cw-v2-color-green-900: #173427;
+
+  /* purple ramp */
+  --cw-v2-color-purple-50: #F0E9FB;
+  --cw-v2-color-purple-100: #DBCAFF;
+  --cw-v2-color-purple-200: #C0A2FF;
+  --cw-v2-color-purple-300: #A579FD;
+  --cw-v2-color-purple-400: #8D63E0;
+  --cw-v2-color-purple-500: #8D63E0;
+  --cw-v2-color-purple-600: #7650C3;
+  --cw-v2-color-purple-700: #603EA5;
+  --cw-v2-color-purple-800: #4C2F88;
+  --cw-v2-color-purple-900: #3A216B;
+
+  /* Type */
+  --cw-font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --cw-font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radius */
+  --cw-radius-sm: 5px;
+  --cw-radius-md: 8px;
+  --cw-radius-lg: 12px;
+  --cw-radius-xl: 14px;
+  --cw-radius-2xl: 18px;
+  --cw-radius-3xl: 22px;
+  --cw-radius-4xl: 26px;
+  --cw-radius-full: 9999px;
+
+  /* Spacing */
+  --cw-space-none: 0px;
+  --cw-space-xs: 4px;
+  --cw-space-sm: 8px;
+  --cw-space-md: 12px;
+  --cw-space-base: 16px;
+  --cw-space-lg: 24px;
+  --cw-space-xl: 32px;
+  --cw-space-xxl: 48px;
+  --cw-space-section: 64px;
+  --cw-space-hero: 80px;
+  --cw-space-wide: 120px;
+
+  /* Signature spectrum band — stop order is fixed */
+  --cw-band: linear-gradient(90deg,
+    #4CE0C6 0%,
+    #92E7E5 10%,
+    #5594FF 24%,
+    #3590F3 36%,
+    #FFD166 50%,
+    #E8735A 66%,
+    #9966FF 82%,
+    #8D63E0 92%,
+    #4CE0C6 100%
+  );
+}
+
+/* Slide-scale type ramp (1920×1080). Presentation scale, not the product UI
+   ramp — compare productType in tokens.json. */
+.cw-slide-$comment { font-family: var(--cw-font-sans); font-size: undefinedpx; line-height: undefined%; letter-spacing: NaNem; }
+.cw-slide-cover-title { font-family: var(--cw-font-sans); font-size: 116px; line-height: 104%; letter-spacing: -0.02em; }
+.cw-slide-section-title { font-family: var(--cw-font-sans); font-size: 88px; line-height: 106%; letter-spacing: -0.02em; }
+.cw-slide-action-title { font-family: var(--cw-font-sans); font-size: 48px; line-height: 122%; letter-spacing: -0.015em; }
+.cw-slide-lead { font-family: var(--cw-font-sans); font-size: 34px; line-height: 132%; letter-spacing: -0.01em; }
+.cw-slide-card-title { font-family: var(--cw-font-sans); font-size: 24px; line-height: 136%; letter-spacing: 0em; }
+.cw-slide-body { font-family: var(--cw-font-sans); font-size: 24px; line-height: 148%; letter-spacing: 0em; }
+.cw-slide-body-small { font-family: var(--cw-font-sans); font-size: 21px; line-height: 150%; letter-spacing: 0em; }
+.cw-slide-body-tiny { font-family: var(--cw-font-sans); font-size: 17px; line-height: 152%; letter-spacing: 0em; }
+.cw-slide-metric { font-family: var(--cw-font-sans); font-size: 96px; line-height: 100%; letter-spacing: -0.03em; }
+.cw-slide-metric-small { font-family: var(--cw-font-sans); font-size: 52px; line-height: 105%; letter-spacing: -0.02em; }
+.cw-slide-overline { font-family: var(--cw-font-mono); font-size: 15px; line-height: 140%; letter-spacing: 0.12em; text-transform: uppercase; }
+.cw-slide-data { font-family: var(--cw-font-mono); font-size: 19px; line-height: 145%; letter-spacing: 0em; }
+.cw-slide-label { font-family: var(--cw-font-sans); font-size: 17px; line-height: 140%; letter-spacing: 0em; }
+.cw-slide-note { font-family: var(--cw-font-mono); font-size: 15px; line-height: 148%; letter-spacing: 0em; }
+.cw-slide-footnote { font-family: var(--cw-font-mono); font-size: 14px; line-height: 150%; letter-spacing: 0.06em; }
+.cw-slide-metric-hero { font-family: var(--cw-font-sans); font-size: 200px; line-height: 100%; letter-spacing: -0.04em; }
+.cw-slide-section-numeral { font-family: var(--cw-font-sans); font-size: 400px; line-height: 100%; letter-spacing: -0.04em; }
