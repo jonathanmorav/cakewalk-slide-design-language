@@ -33,9 +33,10 @@ footer on every slide, nothing out of bounds, no title/tick collisions.
 | 3 | [Motifs](docs/03-motifs.md) | The spectrum band, the cropped mark, the tonal arc |
 | 4 | [Conventions](docs/04-conventions.md) | Action titles, coral scarcity, cards, pills, bullets, footers |
 | 5 | [Slides API](docs/05-slides-api.md) | Figma Slides hierarchy, sections, addressing, limits |
-| 6 | [Pitfalls](docs/06-pitfalls.md) | The thirteen failure modes, with fixes |
+| 6 | [Pitfalls](docs/06-pitfalls.md) | The fourteen failure modes, with fixes |
 | 7 | [Chart vocabulary](docs/07-chart-vocabulary.md) | ~40 chart and diagram recipes, all from primitives |
 | 8 | [Recreating a deck](docs/08-recreating-a-deck.md) | Text dump → extract → layout → batch → validate |
+| 9 | [Figma theme](docs/09-figma-theme.md) | What was actually written into the live file |
 
 If you only read two: **Grid** and **Pitfalls**.
 
@@ -57,10 +58,12 @@ lib/
                   Palette, band, grid constants, primitives, text, clone-measure,
                   logo/mark, footer, head() with the auto-moving tick, pills,
                   divider(), guide(), row/section helpers, position addressing.
-  validate.js     Read-only validator. 'deck' mode audits the whole file;
-                  'batch' mode audits the slides you just built. Catches empty
-                  slides, page-number drift, missing footers, out-of-bounds
-                  nodes, overlaps, clipped text and title/tick collisions.
+  validate.js     Deck validator. 'deck' mode audits the whole file; 'batch'
+                  mode audits the slides you just built. Catches empty slides,
+                  page-number drift, missing footers, out-of-bounds nodes,
+                  overlaps, clipped text and title/tick collisions. Grid-aware
+                  (g88 | g128). Effectively read-only — it clone-measures titles,
+                  so it loads fonts first (see pitfall 14).
   renumber.js     Re-derives every printed page number from deck position.
                   Dry-run by default. Run after any insert, delete or reorder.
   extract.py      Slide-text extractor for a Google Slides plain-text export.
@@ -72,7 +75,7 @@ assets/
   SOURCE.md            Provenance, the crop maths behind the mark, and why the
                        SVG's clip path must be stripped before Figma import.
 
-docs/               The eight documents above.
+docs/               The nine documents above, plus an index.
 ```
 
 ## Quickstart
@@ -102,7 +105,8 @@ return { built: [s.id] };
 ```
 
 4. Paste `lib/validate.js` (MODE `'batch'`, `POSITIONS = [1]`) and check it comes
-   back `clean: true`.
+   back `clean: true`. Run it in `'deck'` mode, with `EXPECT_TOTAL` set, before
+   calling a deck finished.
 
 ## Conventions in one screen
 

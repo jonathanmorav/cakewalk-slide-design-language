@@ -211,3 +211,35 @@ Three concrete cases from the GTM build:
 
 Keep the wording verbatim and make the grouping call explicitly, then **tell the
 reader you made it**. Do not quietly normalise.
+
+---
+
+### 14. A "read-only" script still needs fonts loaded if it touches text
+
+`lib/validate.js` clone-measures the action title, and that clone sets
+`textAutoResize`. Any **write** to a text node — including one you immediately
+throw away — requires the node's font to be loaded first:
+
+```
+Error: in set_textAutoResize: Cannot write to node with unloaded font
+"Plus Jakarta Sans Bold".
+```
+
+This hid for a while because the measurement was originally inlined in build
+scripts, which had already loaded the fonts. Standalone, it dies on the first
+title.
+
+So the canonical recipe — **load font → await → mutate** — applies to
+measurement, not just to editing `characters`. Load the family set at the top of
+any script that reads text geometry:
+
+```js
+await Promise.all(
+  ['ExtraBold','Bold','SemiBold','Medium','Regular'].map(st => figma.loadFontAsync({ family: 'Plus Jakarta Sans', style: st }))
+    .concat(['SemiBold','Medium','Regular'].map(st => figma.loadFontAsync({ family: 'IBM Plex Mono', style: st })))
+);
+```
+
+The validator also wraps the measurement in try/catch and reports
+`titlesUnmeasured` rather than dying, so one unexpected font cannot take down a
+576-slide audit.
