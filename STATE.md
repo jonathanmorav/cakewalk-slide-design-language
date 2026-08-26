@@ -192,11 +192,25 @@ from Google Slides — `lib/extract.py` reads that format.
   exception; **Account management spans Onboard & enroll → Renew & expand** as Tier 2 / Tier 3
   exception work. Sales occupying one stage of six is the intended result — it is what makes
   the leverage argument geometric rather than asserted.
-- **Slide 589 · the Product lane is ink + spectrum rule, never coral.** A first version made it
-  a full-width coral bar; Jonathan rejected it ("red looks off", wanted a sleek foundational
-  layer). It is now `ink` with a 6px spectrum band top rule, `mint` overline and `light` mono
-  detail — the documented ink-ground treatment. The slide therefore carries **no coral except
-  the eyebrow**, which is chrome. Do not "restore" the accent.
+- **Slide 589 · the product is NOT a lane and must not be put back on the axis.** It went
+  through three rejected forms — full-width coral bar ("red looks off"), then an ink bar with a
+  spectrum top rule ("don't think it should be that blue color"). The resolved design, in
+  Jonathan's words, is a "clear background end to end shape with Cakewalk Product in the middle
+  and the signature rainbow line as the border between the above axis and foundational platform
+  layer". So:
+    - The six stage headers and their gridlines **stop at the bottom of the third role lane**
+      (`AXIS_BOTTOM`). The axis governs people only.
+    - A **full-bleed spectrum band, 1920 x 8 at x=0**, is the boundary. This is the only
+      full-bleed band in the operating set and it is deliberate — do not inset it to the 88px
+      margin.
+    - Below it: **no box, no fill.** `Cakewalk Product` in ExtraBold 46 centred on the full
+      1920, capability list in mono 14 centred beneath. The white ground *is* the platform
+      layer; boxing it destroys the idea.
+  The slide therefore carries **no coral except the eyebrow**, which is chrome. Do not
+  "restore" an accent to the product layer.
+- **Slide 589 has no source line.** The at-scale caveat lives in the eyebrow
+  (`GTM organization · at scale`) because a left-aligned source line sat inside the centred
+  foundation zone and broke its symmetry.
 - **Slide 589 · role titles are Jonathan's for Sales and Account management, mine for Growth.**
   `Licensed Account Executive` and `Account manager` were given directly. `GTM engineer ·
   Data analyst · Lifecycle marketer` is still my proposal and unconfirmed.
