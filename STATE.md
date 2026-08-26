@@ -205,25 +205,30 @@ from Google Slides — `lib/extract.py` reads that format.
   "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
   subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
   two lines and the tick stays at y=266 — re-measure if the wording changes again.
-- **Slide 590 · the point is SEQUENCING, not a side-by-side comparison.** A first version put the
-  two motions in equal columns; Jonathan rejected the implication — the arms are on different
-  clocks. Channel partnerships are the longer cycle; GTM engineering capabilities are being built
-  now and the first customers come from there. The slide is therefore a **two-lane relative time
-  axis** (`Now · +90 days · +6 months · +12 months`): both bars start at Now with a dashed
-  "still building" span, then a solid "producing" span that begins at very different points
-  (engineering at ~0.28 of the axis, partners at ~0.66). **The gap between the two milestone
-  diamonds is the whole message** — do not re-flatten this into columns.
-- **Slide 590 · the milestone diamonds need a keyline.** Lane B's diamond was originally `mint` on
-  a `mint` bar and was completely invisible. It is now `blue800`, and both diamonds carry a 2.5px
-  white stroke so they read against any bar colour. Lane A's stays `coral` — the one coral moment,
-  marking where the first customers actually come from.
-- **Slide 590 · horizons are relative on purpose.** `+90 days` / `+6 months` are not committed
-  dates; the source line says so. Partner timelines are not Cakewalk's to set, which is the
-  slide's own argument, so pinning them to calendar dates would contradict it.
+- **Slide 590 went through three structures. The third is right: DEFINITION first.**
+  1. Two equal columns of mechanics — rejected: implied the arms are peers when they are on
+     different clocks.
+  2. A two-lane relative time axis with milestone diamonds — rejected: "too much focus on
+     sequencing and preparedness which is important but probably secondary to defining the
+     motions, what they do, and why they're there."
+  3. **Current:** two columns, each running **name → one-line definition → What it does →
+     Why it's there**, with the rationale named as an asset in `blue800` SemiBold 24
+     (`Control and speed.` / `Reach and trust.`). Sequencing survives as a single mono line per
+     column — `In build now · short cycle` / `In build now · longer cycle`. That phrasing carries
+     both of Jonathan's points at once: both motions are being built in parallel, and the cycles
+     differ. **Do not promote sequencing back to the spine.**
+- **Slide 590 · the asset contrast is the intellectual spine.** Motion A buys control and speed
+  (we own the funnel, we iterate on our own clock); motion B buys reach and trust (access and
+  credibility we cannot build one account at a time). The action title states exactly this. If
+  the copy ever changes, keep the two assets distinct — that contrast is why the slide exists.
 - **Slide 590 · what is Jonathan's and what is mine.** His: both motion definitions, the five
-  pipeline steps, and the sequencing argument itself. Mine: the action title, the relative
-  horizon buckets, the platform categories and partner-cycle constraints (both lifted from the
-  channel pipeline), and the "why the clocks differ" strip.
+  pipeline steps, and the sequencing point. Mine: the action title, the two asset names and
+  their explanations, the platform categories (lifted from the channel pipeline), and the
+  partner-side benefits (lifted from the channel entry slide's column C).
+- **Slide 590 · card height is tuned to the source line.** Cards are 606 tall ending at y=910,
+  leaving 34px to the source line at 944. An earlier 626 left only 14px, which read as crowded.
+  Lowest content sits at 597 (A) and 593 (B), so there is no room to grow the copy without
+  re-tuning both.
 - **Slide 589 · the product is NOT a lane and must not be put back on the axis.** It went
   through three rejected forms — full-width coral bar ("red looks off"), then an ink bar with a
   spectrum top rule ("don't think it should be that blue color"). The resolved design, in
