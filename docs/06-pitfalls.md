@@ -243,3 +243,26 @@ await Promise.all(
 The validator also wraps the measurement in try/catch and reports
 `titlesUnmeasured` rather than dying, so one unexpected font cannot take down a
 576-slide audit.
+
+---
+
+### 15. `toLocaleString` is a silent no-op in the plugin sandbox
+
+`(480000).toLocaleString('en-US')` returns `"480000"`, not `"480,000"`. It does not throw,
+so nothing in the build or the validator notices — the slide simply ships with unformatted
+digits. This shipped once on the channel-partner pipeline slide and was caught in a
+screenshot, which is the only thing that catches it.
+
+Group thousands by hand:
+
+```js
+const num = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+```
+
+Assume the same of every other locale-aware built-in — `Intl`, date formatting, currency.
+Format numbers in your own code and pass strings to the text node.
+
+A related trap when patching numbers into existing cells: filter on **two** properties, not
+one. `x === 808` also matched the 48px-tall header cell, so the header was overwritten with
+a figure. Adding `height === 70` fixed it. Same lesson as pitfall 4 — one coordinate is
+never a selector.
