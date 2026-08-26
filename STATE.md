@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · 587-588 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
+Last verified: 2026-08-26 · 587-589 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         588        Rows (sections)  45
+Slides         589        Rows (sections)  46
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -87,7 +87,11 @@ row |  positions | n  | name
 42  | 583- 586   |  4 | Board deck · Sept 2 · GTM approach
 43  | 587- 587   |  1 | GTM organization
 44  | 588- 588   |  1 | Points of entry
+45  | 589- 589   |  1 | GTM swimlane
 ```
+
+Slide 589 is the only **white-ground** slide in the operating set (588 and 587 are sidewalk);
+that was an explicit request, not a drift.
 
 Row 43 is a normal numbered slide — it prints `587` and keeps the invariant. It was built
 for Figma, not for the Google board deck; if it ever needs to go there, drop the page
@@ -126,6 +130,7 @@ already in this deck. Every derivation, so a reader can audit it:
 PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   1920x1080
        ~/cakewalk-slide-template/export/slide-587-gtm-organization.png           1920x1080
        ~/cakewalk-slide-template/export/slide-588-points-of-entry.png            1920x1080
+       ~/cakewalk-slide-template/export/slide-589-gtm-swimlane.png               1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -177,6 +182,19 @@ from Google Slides — `lib/extract.py` reads that format.
 - **Slide 588 · the `Next` pill on Administer comes from the Horizon slide**, not from the
   brief: Figma 582 puts admin-first BOR in Horizon 2 ("volume once we can administer plans we
   did not sell"). If that sequencing changes, the pill changes.
+- **Slide 589 · every lane span is a decision Jonathan made in an intake, not an inference.**
+  Recorded so nobody "corrects" them: the axis is the account's journey in six stages
+  (Target · Engage · Quote & close · Onboard & enroll · Administer · Renew & expand); scope is
+  at scale; lane labels carry roles but deliberately **no headcount**; and the point is
+  leverage. The four spans: **Growth owns Target + Engage end-to-end** (product-led nurture, so
+  Sales never does outbound); **Sales owns Quote & close only**, as a single licensed
+  producer role that both quotes and closes; **Product owns Onboard & enroll** with humans on
+  exception; **Account management spans Onboard & enroll → Renew & expand** as Tier 2 / Tier 3
+  exception work. Sales occupying one stage of six is the intended result — it is what makes
+  the leverage argument geometric rather than asserted.
+- **Slide 589 · two phrases are mine, not Jonathan's**, and should be checked before this goes
+  external: "Headcount does not scale with accounts" (the stated implication of the leverage
+  framing) and the role titles in every lane label except Sales' "Licensed producer (AE)".
 - **Slide 587 · Sales is thinner than its peers by construction.** The brief gave Growth an
   explicit objective and Account management a hard 75/25 statistic; Sales got one clause and
   a parenthetical. Its panel carries `Close accounts.` plus a `Needed to start` pill and is
