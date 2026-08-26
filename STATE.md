@@ -213,10 +213,20 @@ from Google Slides — `lib/extract.py` reads that format.
      motions, what they do, and why they're there."
   3. **Current:** two columns, each running **name → one-line definition → What it does →
      Why it's there**, with the rationale named as an asset in `blue800` SemiBold 24
-     (`Control and speed.` / `Reach and trust.`). Sequencing survives as a single mono line per
-     column — `In build now · short cycle` / `In build now · longer cycle`. That phrasing carries
-     both of Jonathan's points at once: both motions are being built in parallel, and the cycles
-     differ. **Do not promote sequencing back to the spine.**
+     (`Control and speed.` / `Reach and trust.`).
+  **Sequencing is now off the slide entirely.** The `In build now · short cycle` mono lines were
+  cut on review ("let's get rid of small text"). Timing lives on the roadmap, not here. Do not
+  reintroduce it in any form.
+- **Slide 590 · exact wording, all Jonathan's on review.** Motion A's definition is
+  `Applying AI & engineering to build a GTM demand engine.` (he wrote "to creating"; the only
+  change is the infinitive, and the `&` is his). Step 4 is `Scaled outbound`, step 5 is
+  `Account based targeting` — previously "Mass outbound" and "Account-based marketing". Steps 4
+  and 5 are SemiBold because they are outputs of the pipeline, not build steps.
+- **Slide 590 · the two rationale blocks are y-aligned on purpose.** Both cards place the
+  divider at 436, the `WHY IT'S THERE` label at 458, the asset name at 484 and its explanation
+  at 524, regardless of how much content sits above. The `Control and speed.` / `Reach and
+  trust.` contrast is the slide's spine and only reads as a pair when the two lines sit at the
+  same height. Keep them locked if the copy above changes length.
 - **Slide 590 · the asset contrast is the intellectual spine.** Motion A buys control and speed
   (we own the funnel, we iterate on our own clock); motion B buys reach and trust (access and
   credibility we cannot build one account at a time). The action title states exactly this. If
