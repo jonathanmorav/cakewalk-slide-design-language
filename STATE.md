@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · 587 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
+Last verified: 2026-08-26 · 587-588 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         587        Rows (sections)  44
+Slides         588        Rows (sections)  45
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -86,6 +86,7 @@ row |  positions | n  | name
 41  | 578- 582   |  5 | Board GTM · Sept 2026
 42  | 583- 586   |  4 | Board deck · Sept 2 · GTM approach
 43  | 587- 587   |  1 | GTM organization
+44  | 588- 588   |  1 | Points of entry
 ```
 
 Row 43 is a normal numbered slide — it prints `587` and keeps the invariant. It was built
@@ -124,6 +125,7 @@ already in this deck. Every derivation, so a reader can audit it:
 ```
 PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   1920x1080
        ~/cakewalk-slide-template/export/slide-587-gtm-organization.png           1920x1080
+       ~/cakewalk-slide-template/export/slide-588-points-of-entry.png            1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -160,6 +162,21 @@ from Google Slides — `lib/extract.py` reads that format.
   purchase order. If that is wrong the column becomes a Yes/No pill.
 - **Slide 580** deliberately removed A's visual primacy — the title frames the three entry
   paths as alternatives. Restore emphasis if greenfield owner really is the priority.
+- **Three slides now say "points of entry", on three different axes.** Keep them distinct or
+  the deck contradicts itself: the older *We have three points of entry* segments by
+  **persona** (owner / benefits admin / channel partner); *Depending on the product area*
+  segments by **our product area** (discover & buy / enroll / administer / renew & expand);
+  slide 588 segments by **the prospect's current state** (greenfield / has-benefits-admin-pain
+  / approaching-renewal). Only the last is observable from outside, which is why it is the
+  one a targeting query can act on.
+- **Slide 588 · signals were built and then cut.** A first version carried a third column of
+  draft targeting signals derived from the decks (no plan in force · QuickBooks/BambooHR/Paychex;
+  25-45 ee · medical + ancillary in force · not on a PEO; renewal date inside 90 days).
+  Jonathan rejected the column. Do not reintroduce it without being asked. The signals are
+  recorded here only so the derivation is not lost.
+- **Slide 588 · the `Next` pill on Administer comes from the Horizon slide**, not from the
+  brief: Figma 582 puts admin-first BOR in Horizon 2 ("volume once we can administer plans we
+  did not sell"). If that sequencing changes, the pill changes.
 - **Slide 587 · Sales is thinner than its peers by construction.** The brief gave Growth an
   explicit objective and Account management a hard 75/25 statistic; Sales got one clause and
   a parenthetical. Its panel carries `Close accounts.` plus a `Needed to start` pill and is
@@ -182,3 +199,10 @@ from Google Slides — `lib/extract.py` reads that format.
   to be rebuilt there by hand.
 - **The board deck's own page numbers are wrong** — slides 8-11 print 527-530, inherited
   from the Slideworks template. Worth a renumber pass in Google before Sept 2.
+- **Google is ahead of Figma on wording, and nothing syncs it.** As of 2026-08-26 the deck
+  *Cakewalk Weekly Review* (`1m-flIgIpjpNMaqbqdkyu_n4sOXhTcRJm8azTOPlnDpU`) carries hand-edited
+  versions of slides built here: 587's headline ends "retain and expand the account" (Figma
+  says "keep the account"), Growth's objective is "Build the funnel of prospective accounts",
+  the `Needed to start` pill is gone, and the old entry slide's column C has been rewritten
+  with real channel-partner copy (trust transfer · incremental partner revenue · reduced
+  churn). Back-port before treating Figma as the source of truth.
