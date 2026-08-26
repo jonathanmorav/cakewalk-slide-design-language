@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · batch-clean on 583-586; page numbers omitted there by design (see below).
+Last verified: 2026-08-26 · 587 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         586        Rows (sections)  43
+Slides         587        Rows (sections)  44
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -85,7 +85,12 @@ row |  positions | n  | name
 40  | 577- 577   |  1 | Partnerships
 41  | 578- 582   |  5 | Board GTM · Sept 2026
 42  | 583- 586   |  4 | Board deck · Sept 2 · GTM approach
+43  | 587- 587   |  1 | GTM organization
 ```
+
+Row 43 is a normal numbered slide — it prints `587` and keeps the invariant. It was built
+for Figma, not for the Google board deck; if it ever needs to go there, drop the page
+number first (see the row 42 exception) and re-export.
 
 ### Exception to the numbering invariant: row 42
 
@@ -118,6 +123,7 @@ already in this deck. Every derivation, so a reader can audit it:
 
 ```
 PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   1920x1080
+       ~/cakewalk-slide-template/export/slide-587-gtm-organization.png           1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -154,6 +160,15 @@ from Google Slides — `lib/extract.py` reads that format.
   purchase order. If that is wrong the column becomes a Yes/No pill.
 - **Slide 580** deliberately removed A's visual primacy — the title frames the three entry
   paths as alternatives. Restore emphasis if greenfield owner really is the priority.
+- **Slide 587 · Sales is thinner than its peers by construction.** The brief gave Growth an
+  explicit objective and Account management a hard 75/25 statistic; Sales got one clause and
+  a parenthetical. Its panel carries `Close accounts.` plus a `Needed to start` pill and is
+  visibly lighter than the other two. That asymmetry is the input, not a layout bug — do not
+  pad it with invented copy. If Sales gets a real target, that panel is where it goes.
+- **`mint100` pairs with `blue800`, not `mint800`.** Slide 585's group-C badge uses an
+  improvised `mint800` (`#497472`) that is not in the documented triples in
+  `docs/01-foundations.md`. Slide 587 uses the documented pairing. Worth reconciling 585 the
+  next time its export is regenerated — it is a small tonal difference, not a visible defect.
 - **Board deck slides 10 and 11 are unconverted Slideworks filler.** Their bodies are still
   construction-industry content from the source template — "Preconstruction",
   "Bid management 2.0", "Head of pre-construction", "Deliver projects on time and on
