@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · `clean: true` on a full-deck validate.
+Last verified: 2026-08-26 · batch-clean on 583-584; page numbers omitted there by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         582        Rows (sections)  42
+Slides         584        Rows (sections)  43
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -33,6 +33,7 @@ anywhere else does not.
 | Recreated template | 1–576 | Two Slideworks consulting templates rebuilt in this language. **Placeholder copy is deliberate and verbatim** — `[Insert segment]` is an instruction to the next author. Do not "fill in" or paraphrase. |
 | Operating slide | 577 | Channel partner pipeline. Category placeholders (`[Payroll platform]`), real structure. |
 | Operating deck | 578–582 | Board GTM · Sept 2026. Real copy, no placeholders. |
+| Export staging | 583–584 | Redesigns built **for another deck** (the Google Slides board deck). Page numbers deliberately omitted — see the exception below. |
 
 ## Section map
 
@@ -83,7 +84,23 @@ row |  positions | n  | name
 ----+------------+----+--- GTM template ends at 576 -----------------
 40  | 577- 577   |  1 | Partnerships
 41  | 578- 582   |  5 | Board GTM · Sept 2026
+42  | 583- 584   |  2 | Board deck · Sept 2 · GTM approach
 ```
+
+### Exception to the numbering invariant: row 42
+
+Row 42 is an **export-staging** row. Its slides are redesigns of slides in the
+Google Slides deck *Cakewalk Board of Directors Meeting - 9/2/2026*
+(`1e0VCDfnEKlFanqXUiNSADM5iqvyzcyL4jCn7rSrINQc`), destined to be exported as
+images and placed back into that deck — so a Figma page number would be wrong
+wherever they land.
+
+They therefore carry the footer wordmark but **no page number**, and
+`lib/validate.js` reports them as `badPageNumbers: missing`. That finding is
+expected. Do not "fix" it by numbering them 583/584, and do not run
+`lib/renumber.js` over row 42.
+
+Source mapping: Figma 583 = board-deck slide 8 · Figma 584 = board-deck slide 9.
 
 Source-slide mapping for the templates: Business Case `position === source n`;
 GTM `position = 270 + n`.
@@ -107,3 +124,16 @@ from Google Slides — `lib/extract.py` reads that format.
   purchase order. If that is wrong the column becomes a Yes/No pill.
 - **Slide 580** deliberately removed A's visual primacy — the title frames the three entry
   paths as alternatives. Restore emphasis if greenfield owner really is the priority.
+- **Board deck slides 10 and 11 are unconverted Slideworks filler.** Their bodies are still
+  construction-industry content from the source template — "Preconstruction",
+  "Bid management 2.0", "Head of pre-construction", "Deliver projects on time and on
+  budget". They were not rebuilt, because redesigning filler produces a beautiful wrong
+  slide. Slide 9's column C carries the same problem in its five bullets
+  ("Control time to completion", "Maintain commitment to quality") — those were kept
+  verbatim as asked, and are flagged rather than invented over.
+- **No Google Slides write path exists.** Drive's `update_file` covers title and parent only;
+  there is no Slides API tool in this environment. Figma → Google is export-PNG-and-place,
+  which flattens the slide to an image. Anything needing native editable Google Slides has
+  to be rebuilt there by hand.
+- **The board deck's own page numbers are wrong** — slides 8-11 print 527-530, inherited
+  from the Slideworks template. Worth a renumber pass in Google before Sept 2.
