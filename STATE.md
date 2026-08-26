@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · 587-591 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
+Last verified: 2026-08-26 · 587-592 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         591        Rows (sections)  48
+Slides         592        Rows (sections)  49
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -90,6 +90,7 @@ row |  positions | n  | name
 45  | 589- 589   |  1 | GTM swimlane
 46  | 590- 590   |  1 | GTM distribution
 47  | 591- 591   |  1 | State licensing
+48  | 592- 592   |  1 | TPA licensing
 ```
 
 Slide 589 is the only **white-ground** slide in the operating set (588 and 587 are sidewalk);
@@ -135,6 +136,7 @@ PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   
        ~/cakewalk-slide-template/export/slide-589-gtm-swimlane.png               1920x1080
        ~/cakewalk-slide-template/export/slide-590-gtm-distribution.png           1920x1080
        ~/cakewalk-slide-template/export/slide-591-state-licensing.png            1920x1080
+       ~/cakewalk-slide-template/export/slide-592-tpa-licensing.png              1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -207,6 +209,21 @@ from Google Slides — `lib/extract.py` reads that format.
   "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
   subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
   two lines and the tick stays at y=266 — re-measure if the wording changes again.
+- **Slides 591 and 592 are a deliberate pair** and share the same 11-column US tile grid,
+  the same tile geometry (92x58, radius 10, 8px gutters), the same counts-as-legend rail and the
+  same coral ring on the launch markets. Change one and change the other, or they stop reading
+  as a set. 591 is **agency** licensing (from the sheet); 592 is **TPA** licensing (from
+  Jonathan's list, 2026-08-26).
+- **Slide 592 · TPA statuses are three, not four.** `Active` 25 (green) · `Not required *` 1
+  (blue, New York only) · `Not active` 25 (sidewalk). New York's tile reads `NY*` and a cream
+  note in the rail carries the reason: no TPA licence is required where claims are not handled.
+  Do not fold NY into either Active or Not active — it is a third state of the world.
+- **The two licensing footprints diverge, and no slide says so yet.** Cross-referencing 591 and
+  592: **15 jurisdictions hold both** an agency licence and an active TPA licence (AR DE IN ID KS
+  KY MT ND RI SD TN UT VT WI WV); **12 are agency-only** (CT DC IA LA ME MD MI MN NC OK PA SC);
+  **10 are TPA-only** (AZ CA IL MA MO MS NE NM OH WA). Selling *and* administering needs both, so
+  15 is arguably the real operating footprint. Flagged to Jonathan; a combined slide has not been
+  requested.
 - **Slide 591 · the licensing data is transcribed, and the build self-checks it.** Source is the
   Google Sheet `1gysxRGuNpo0ldV5KRSYmhvbXY0hWI6XsFNRf1C9Oehw` (Cakewalk Benefits Insurance
   Agency, LLC — Licenses by State, NPN 22297453). The build asserts three things and throws
