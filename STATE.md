@@ -205,18 +205,25 @@ from Google Slides — `lib/extract.py` reads that format.
   "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
   subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
   two lines and the tick stays at y=266 — re-measure if the wording changes again.
-- **Slide 590 · the two distribution arms are deliberately NOT symmetrical.** GTM engineering is
-  a sequential pipeline (build the funnel · enrich it · customize offers · mass outbound ·
-  account-based marketing, the last two set SemiBold because they are outputs rather than build
-  steps); channel partners is a category set plus the partner's reasons to say yes. Forcing them
-  into matching layouts was rejected on purpose — one arm is a machine we operate, the other is
-  trust we borrow, and the shapes should say so. Peer accents are `blue600` / `mint`; the
-  convergence strip uses the spectrum band, so **the slide has no coral except the eyebrow**.
-- **Slide 590 · what is Jonathan's and what is mine.** His: both arm definitions, and the five
-  pipeline steps. Mine: the action title, the four platform categories (lifted from the channel
-  pipeline — payroll, accounting, banking, franchise), the three partner-side reasons (lifted
-  from the channel entry slide's column C), and the convergence line "One funnel, one pipeline,
-  one sales motion". The source line on the slide states the two liftings.
+- **Slide 590 · the point is SEQUENCING, not a side-by-side comparison.** A first version put the
+  two motions in equal columns; Jonathan rejected the implication — the arms are on different
+  clocks. Channel partnerships are the longer cycle; GTM engineering capabilities are being built
+  now and the first customers come from there. The slide is therefore a **two-lane relative time
+  axis** (`Now · +90 days · +6 months · +12 months`): both bars start at Now with a dashed
+  "still building" span, then a solid "producing" span that begins at very different points
+  (engineering at ~0.28 of the axis, partners at ~0.66). **The gap between the two milestone
+  diamonds is the whole message** — do not re-flatten this into columns.
+- **Slide 590 · the milestone diamonds need a keyline.** Lane B's diamond was originally `mint` on
+  a `mint` bar and was completely invisible. It is now `blue800`, and both diamonds carry a 2.5px
+  white stroke so they read against any bar colour. Lane A's stays `coral` — the one coral moment,
+  marking where the first customers actually come from.
+- **Slide 590 · horizons are relative on purpose.** `+90 days` / `+6 months` are not committed
+  dates; the source line says so. Partner timelines are not Cakewalk's to set, which is the
+  slide's own argument, so pinning them to calendar dates would contradict it.
+- **Slide 590 · what is Jonathan's and what is mine.** His: both motion definitions, the five
+  pipeline steps, and the sequencing argument itself. Mine: the action title, the relative
+  horizon buckets, the platform categories and partner-cycle constraints (both lifted from the
+  channel pipeline), and the "why the clocks differ" strip.
 - **Slide 589 · the product is NOT a lane and must not be put back on the axis.** It went
   through three rejected forms — full-width coral bar ("red looks off"), then an ink bar with a
   spectrum top rule ("don't think it should be that blue color"). The resolved design, in
