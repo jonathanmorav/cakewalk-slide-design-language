@@ -192,6 +192,16 @@ from Google Slides — `lib/extract.py` reads that format.
   exception; **Account management spans Onboard & enroll → Renew & expand** as Tier 2 / Tier 3
   exception work. Sales occupying one stage of six is the intended result — it is what makes
   the leverage argument geometric rather than asserted.
+  **Updated 2026-08-26:** Sales now spans **Engage + Quote & close** (`span(1,2)`), overlapping
+  Growth on Engage, on Jonathan's note that "there might be some overlap with sales on engage".
+  Lane coverage is now Growth `Target·Engage`, Sales `Engage·Quote & close`, Account management
+  `Onboard & enroll·Administer·Renew & expand`. Sales' copy dropped its forced newlines at the
+  same time — the wider bar fits one line.
+  **This leaves the action title overstated.** It still reads "each own one distinct moment in
+  the lifecycle", but with Engage shared and every lane covering 2-3 stages, neither "one" nor
+  "distinct" is literally true. Left as-is because Jonathan authored that headline the turn
+  before; the flagged replacement is "Each function owns a stretch of the lifecycle, and they
+  overlap only at the handoff." Resolve before this goes external.
 - **Slide 589 · the product is NOT a lane and must not be put back on the axis.** It went
   through three rejected forms — full-width coral bar ("red looks off"), then an ink bar with a
   spectrum top rule ("don't think it should be that blue color"). The resolved design, in
