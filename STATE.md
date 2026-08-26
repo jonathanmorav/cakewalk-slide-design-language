@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · 587-590 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
+Last verified: 2026-08-26 · 587-591 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         590        Rows (sections)  47
+Slides         591        Rows (sections)  48
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -89,6 +89,7 @@ row |  positions | n  | name
 44  | 588- 588   |  1 | Points of entry
 45  | 589- 589   |  1 | GTM swimlane
 46  | 590- 590   |  1 | GTM distribution
+47  | 591- 591   |  1 | State licensing
 ```
 
 Slide 589 is the only **white-ground** slide in the operating set (588 and 587 are sidewalk);
@@ -133,6 +134,7 @@ PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   
        ~/cakewalk-slide-template/export/slide-588-points-of-entry.png            1920x1080
        ~/cakewalk-slide-template/export/slide-589-gtm-swimlane.png               1920x1080
        ~/cakewalk-slide-template/export/slide-590-gtm-distribution.png           1920x1080
+       ~/cakewalk-slide-template/export/slide-591-state-licensing.png            1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -205,6 +207,24 @@ from Google Slides — `lib/extract.py` reads that format.
   "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
   subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
   two lines and the tick stays at y=266 — re-measure if the wording changes again.
+- **Slide 591 · the licensing data is transcribed, and the build self-checks it.** Source is the
+  Google Sheet `1gysxRGuNpo0ldV5KRSYmhvbXY0hWI6XsFNRf1C9Oehw` (Cakewalk Benefits Insurance
+  Agency, LLC — Licenses by State, NPN 22297453). The build asserts three things and throws
+  rather than drawing a wrong map: the tile grid holds exactly 51 entries, they are unique, and
+  the computed status counts equal the sheet's own totals (**27 licensed · 2 accepted · 8 pending
+  · 14 not started**). If the sheet changes, update `LICENSED` / `ACCEPTED` / `PENDING` and the
+  assertion will catch any drift.
+- **Slide 591 · the tile grid is a hand-built 11-column US layout**, per the map-substitute
+  archetype in `docs/07-chart-vocabulary.md`. Rows are roughly geographic; the empty cell between
+  WI and MI is Lake Michigan and should stay empty. DC is a tile, which is why the denominator is
+  51 jurisdictions and not 50 states — the action title says "jurisdictions" for that reason.
+- **Slide 591 · only status is shown, not licence detail.** Jonathan asked to drop the notes and
+  expiration columns; I also left out **Original Issue, Number and Lines**, because per-state
+  reference data cannot live on a map and "progress" means status. If those are wanted, they need
+  a separate appendix table — flagged to him, not yet requested.
+- **Slide 591 · coral rings mark the launch states** (TN · WI · AZ) — the one coral moment. The
+  finding the slide exists to deliver is that AZ is the only launch state still pending, which
+  matches the weekly review's "Arizona license still pending".
 - **Slide 590 went through three structures. The third is right: DEFINITION first.**
   1. Two equal columns of mechanics — rejected: implied the arms are peers when they are on
      different clocks.
