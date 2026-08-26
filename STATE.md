@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · batch-clean on 583-584; page numbers omitted there by design (see below).
+Last verified: 2026-08-26 · batch-clean on 583-586; page numbers omitted there by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         584        Rows (sections)  43
+Slides         586        Rows (sections)  43
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -33,7 +33,7 @@ anywhere else does not.
 | Recreated template | 1–576 | Two Slideworks consulting templates rebuilt in this language. **Placeholder copy is deliberate and verbatim** — `[Insert segment]` is an instruction to the next author. Do not "fill in" or paraphrase. |
 | Operating slide | 577 | Channel partner pipeline. Category placeholders (`[Payroll platform]`), real structure. |
 | Operating deck | 578–582 | Board GTM · Sept 2026. Real copy, no placeholders. |
-| Export staging | 583–584 | Redesigns built **for another deck** (the Google Slides board deck). Page numbers deliberately omitted — see the exception below. |
+| Export staging | 583–586 | Redesigns built **for another deck** (the Google Slides board deck). Page numbers deliberately omitted — see the exception below. |
 
 ## Section map
 
@@ -84,7 +84,7 @@ row |  positions | n  | name
 ----+------------+----+--- GTM template ends at 576 -----------------
 40  | 577- 577   |  1 | Partnerships
 41  | 578- 582   |  5 | Board GTM · Sept 2026
-42  | 583- 584   |  2 | Board deck · Sept 2 · GTM approach
+42  | 583- 586   |  4 | Board deck · Sept 2 · GTM approach
 ```
 
 ### Exception to the numbering invariant: row 42
@@ -100,7 +100,37 @@ They therefore carry the footer wordmark but **no page number**, and
 expected. Do not "fix" it by numbering them 583/584, and do not run
 `lib/renumber.js` over row 42.
 
-Source mapping: Figma 583 = board-deck slide 8 · Figma 584 = board-deck slide 9.
+Source mapping: Figma 583/584/585/586 = board-deck slides 8/9/10/11.
+
+**Slides 585 and 586 do not carry the source deck's words.** Their source slides were
+unconverted Slideworks construction filler, so the copy was re-derived from material
+already in this deck. Every derivation, so a reader can audit it:
+
+| Figma | Derivation |
+|---|---|
+| 585 | Pain points lifted verbatim from **Figma 581**'s real 3×4 matrix. Group names taken from board-deck slide 9 (`Small business owners` / `The person running benefits` / `Channel Partners`) rather than 581's later vocabulary (`Greenfield owner` / `Incumbent operator` / `Channel partner`), so slides 9 and 10 agree. The mapping between the two vocabularies is 1:1 and positional. |
+| 585 | Overline changed from `TOP 5 PAIN POINTS…` to `TOP PAIN POINTS…` — there are four real pain points per group, not five, and padding to five would have meant inventing one. |
+| 585 | The source's ranked rows 1–5 became ranked **columns** `01–04`, matching Figma 581's orientation. The ranking within a group is 581's order; treat it as an ordering, not a measured priority. |
+| 586 | Product areas = the four lifecycle stages from board-deck slide 8 (`Buy` / `Enroll` / `Administer` / `Renew & Expand`), with each column's process steps also from slide 8. |
+| 586 | **Buyer-to-area mapping is inferred, not sourced.** Slide 8 lists stakeholders and stages but never maps them. The call made: Buy → owners + partners; Enroll and Administer → the person running benefits + employees; Renew & Expand → owners + partners + carriers. This is the one judgement on these two slides that a reviewer should check first. |
+
+### Export artifacts
+
+```
+PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   1920x1080
+pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
+Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
+       1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
+```
+
+Uploaded with `rclone copy <file> gdrive: --drive-import-formats pptx`, which converts to a
+native Google Slides file on the way in. **`rclone` with a working `gdrive:` remote is the
+only write path to Drive here** — the MCP Drive tool can only change a file's title and
+folder, and pushing base64 through a tool call is enormous by comparison.
+
+Do **not** palette-quantize these exports to save space. 128 colours halves the file and
+visibly destroys the spectrum band — it breaks into flat chunks and the opening mint reads
+as grey. Verified by cropping the tick and comparing. Ship 24-bit PNG.
 
 Source-slide mapping for the templates: Business Case `position === source n`;
 GTM `position = 270 + n`.
