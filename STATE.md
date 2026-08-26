@@ -208,9 +208,24 @@ from Google Slides — `lib/extract.py` reads that format.
       layer; boxing it destroys the idea.
   The slide therefore carries **no coral except the eyebrow**, which is chrome. Do not
   "restore" an accent to the product layer.
-- **Slide 589 has no source line.** The at-scale caveat lives in the eyebrow
-  (`GTM organization · at scale`) because a left-aligned source line sat inside the centred
-  foundation zone and broke its symmetry.
+- **Slide 589 has no source line and no "at scale" text anywhere.** Both were removed on
+  request. The eyebrow is plain `GTM organization`.
+- **Slide 589's lockup is the wordmark standing in for a word, not a logo placement.**
+  `Cakewalk` is the `Cakewalk Wordmark` master; `Product` is ExtraBold 46 text. They are
+  optically matched by comparing **`absoluteRenderBounds`** — true glyph bounds — and scaling
+  the wordmark so its visible height equals the text's (35px for both), then aligning visual
+  tops. Do not guess a height ratio: the wordmark's node box carries slack, so `h = fontSize`
+  or any fixed multiplier lands wrong.
+  The **trademark glyph is deliberately removed from this one clone** — it was two isolated
+  ~3px vectors at the top right, and a `™` sitting between the two words of a phrase reads as
+  an artifact. The footer wordmark keeps its mark, so the slide still marks the trademark once.
+  The removal is guarded to vectors `<=4px in both axes, in the top 20% and right 10%` — see
+  pitfall 4; a looser filter destroys the logotype.
+- **Slide 589 · lane copy uses explicit newlines, deliberately.** Sales reads
+  `Answer questions,\nbuild trust,\nquote and close.` because auto-wrapping a four-verb phrase
+  in a one-stage-wide bar produced a ragged short last line. `lineCount()` in the build takes
+  `max(newlines, ceil(measured/boxWidth))` — measuring alone reports 1 line for a
+  newline-broken string and mis-centres it.
 - **Slide 589 · role titles are Jonathan's for Sales and Account management, mine for Growth.**
   `Licensed Account Executive` and `Account manager` were given directly. `GTM engineer ·
   Data analyst · Lifecycle marketer` is still my proposal and unconfirmed.
