@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · 587-589 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
+Last verified: 2026-08-26 · 587-590 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         589        Rows (sections)  46
+Slides         590        Rows (sections)  47
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -88,6 +88,7 @@ row |  positions | n  | name
 43  | 587- 587   |  1 | GTM organization
 44  | 588- 588   |  1 | Points of entry
 45  | 589- 589   |  1 | GTM swimlane
+46  | 590- 590   |  1 | GTM distribution
 ```
 
 Slide 589 is the only **white-ground** slide in the operating set (588 and 587 are sidewalk);
@@ -131,6 +132,7 @@ PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   
        ~/cakewalk-slide-template/export/slide-587-gtm-organization.png           1920x1080
        ~/cakewalk-slide-template/export/slide-588-points-of-entry.png            1920x1080
        ~/cakewalk-slide-template/export/slide-589-gtm-swimlane.png               1920x1080
+       ~/cakewalk-slide-template/export/slide-590-gtm-distribution.png           1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -203,6 +205,18 @@ from Google Slides — `lib/extract.py` reads that format.
   "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
   subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
   two lines and the tick stays at y=266 — re-measure if the wording changes again.
+- **Slide 590 · the two distribution arms are deliberately NOT symmetrical.** GTM engineering is
+  a sequential pipeline (build the funnel · enrich it · customize offers · mass outbound ·
+  account-based marketing, the last two set SemiBold because they are outputs rather than build
+  steps); channel partners is a category set plus the partner's reasons to say yes. Forcing them
+  into matching layouts was rejected on purpose — one arm is a machine we operate, the other is
+  trust we borrow, and the shapes should say so. Peer accents are `blue600` / `mint`; the
+  convergence strip uses the spectrum band, so **the slide has no coral except the eyebrow**.
+- **Slide 590 · what is Jonathan's and what is mine.** His: both arm definitions, and the five
+  pipeline steps. Mine: the action title, the four platform categories (lifted from the channel
+  pipeline — payroll, accounting, banking, franchise), the three partner-side reasons (lifted
+  from the channel entry slide's column C), and the convergence line "One funnel, one pipeline,
+  one sales motion". The source line on the slide states the two liftings.
 - **Slide 589 · the product is NOT a lane and must not be put back on the axis.** It went
   through three rejected forms — full-width coral bar ("red looks off"), then an ink bar with a
   spectrum top rule ("don't think it should be that blue color"). The resolved design, in
