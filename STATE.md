@@ -192,9 +192,20 @@ from Google Slides — `lib/extract.py` reads that format.
   exception; **Account management spans Onboard & enroll → Renew & expand** as Tier 2 / Tier 3
   exception work. Sales occupying one stage of six is the intended result — it is what makes
   the leverage argument geometric rather than asserted.
-- **Slide 589 · two phrases are mine, not Jonathan's**, and should be checked before this goes
-  external: "Headcount does not scale with accounts" (the stated implication of the leverage
-  framing) and the role titles in every lane label except Sales' "Licensed producer (AE)".
+- **Slide 589 · the Product lane is ink + spectrum rule, never coral.** A first version made it
+  a full-width coral bar; Jonathan rejected it ("red looks off", wanted a sleek foundational
+  layer). It is now `ink` with a 6px spectrum band top rule, `mint` overline and `light` mono
+  detail — the documented ink-ground treatment. The slide therefore carries **no coral except
+  the eyebrow**, which is chrome. Do not "restore" the accent.
+- **Slide 589 · role titles are Jonathan's for Sales and Account management, mine for Growth.**
+  `Licensed Account Executive` and `Account manager` were given directly. `GTM engineer ·
+  Data analyst · Lifecycle marketer` is still my proposal and unconfirmed.
+- **Slide 589 · Sales still spans only Quote & close, and that may want revisiting.** Jonathan's
+  feedback was "it's not just quote and close — questions, build trust and confidence". That was
+  applied to the *copy* (now "Answer questions, build trust, quote, close.") but not the *span*,
+  because the intake explicitly put Engage with Growth end-to-end and limited Sales to inbound
+  intent. If the intent was that the AE's work reaches back into Engage, widen the bar to
+  `span(1, 2)` — the copy already describes a motion wider than one stage.
 - **Slide 587 · Sales is thinner than its peers by construction.** The brief gave Growth an
   explicit objective and Account management a hard 75/25 statistic; Sales got one clause and
   a parenthetical. Its panel carries `Close accounts.` plus a `Needed to start` pill and is
