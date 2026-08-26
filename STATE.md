@@ -197,11 +197,12 @@ from Google Slides — `lib/extract.py` reads that format.
   Lane coverage is now Growth `Target·Engage`, Sales `Engage·Quote & close`, Account management
   `Onboard & enroll·Administer·Renew & expand`. Sales' copy dropped its forced newlines at the
   same time — the wider bar fits one line.
-  **This leaves the action title overstated.** It still reads "each own one distinct moment in
-  the lifecycle", but with Engage shared and every lane covering 2-3 stages, neither "one" nor
-  "distinct" is literally true. Left as-is because Jonathan authored that headline the turn
-  before; the flagged replacement is "Each function owns a stretch of the lifecycle, and they
-  overlap only at the handoff." Resolve before this goes external.
+  **Resolved.** The action title is now "Growth, sales and account management / each own
+  distinct moments across the benefits lifecycle." Pluralising *moments* makes it true of lanes
+  that cover two or three stages, and "benefits lifecycle" names the domain rather than leaving
+  "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
+  subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
+  two lines and the tick stays at y=266 — re-measure if the wording changes again.
 - **Slide 589 · the product is NOT a lane and must not be put back on the axis.** It went
   through three rejected forms — full-width coral bar ("red looks off"), then an ink bar with a
   spectrum top rule ("don't think it should be that blue color"). The resolved design, in
