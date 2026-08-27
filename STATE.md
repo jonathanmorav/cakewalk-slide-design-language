@@ -4,14 +4,14 @@ The durable record of the live file. **Update this whenever the deck changes** �
 the thing that makes picking this up again cheap, and the only place the live
 structure is written down.
 
-Last verified: 2026-08-26 · 587-592 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
+Last verified: 2026-08-27 · 587-593 clean (numbered); 583-586 batch-clean with page numbers omitted by design (see below).
 
 ## The file
 
 ```
 Figma Slides   https://www.figma.com/slides/UtxFDFaTR9GDTRcqIOKlOy/Cakewalk-Slide-Template---Revamp
 fileKey        UtxFDFaTR9GDTRcqIOKlOy
-Slides         592        Rows (sections)  49
+Slides         593        Rows (sections)  50
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
@@ -91,6 +91,7 @@ row |  positions | n  | name
 46  | 590- 590   |  1 | GTM distribution
 47  | 591- 591   |  1 | State licensing
 48  | 592- 592   |  1 | TPA licensing
+49  | 593- 593   |  1 | Operating model
 ```
 
 Slide 589 is the only **white-ground** slide in the operating set (588 and 587 are sidewalk);
@@ -137,6 +138,7 @@ PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   
        ~/cakewalk-slide-template/export/slide-590-gtm-distribution.png           1920x1080
        ~/cakewalk-slide-template/export/slide-591-state-licensing.png            1920x1080
        ~/cakewalk-slide-template/export/slide-592-tpa-licensing.png              1920x1080
+       ~/cakewalk-slide-template/export/slide-593-operating-model.png            1920x1080
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
 Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
@@ -209,6 +211,24 @@ from Google Slides — `lib/extract.py` reads that format.
   "the lifecycle" abstract. The line break after *management* is explicit: line 1 is the
   subject, line 2 the claim. Longest line measures 1284px against a 1700px box, so it holds at
   two lines and the tick stays at y=266 — re-measure if the wording changes again.
+- **Slide 593 · every structural choice came from a two-round intake, not inference.** Recorded
+  so nobody "simplifies" them: **four lanes by layer** (Customer · Cakewalk team · Platform ·
+  External); **seven stages** (Source · Enrich · Offer · Quote & close · Onboard & enroll ·
+  Administer · Renew & expand — Enrich and Offer are stages in their own right, which is what
+  makes it an operating model rather than a funnel); **target state at scale**, no live/planned
+  status; **entry branches only** — the two motions converge and then the path is linear.
+- **Slide 593 · automation is encoded as a 4px node rail, not a tag.** `blue600` = platform,
+  `ink` = human, split (blue top half, ink bottom) = both. Applied **only to the Cakewalk team
+  and Platform lanes** — the Customer and External lanes are not ours to automate, so marking
+  them would be meaningless. The legend states this. Rails were chosen over text tags because
+  24 nodes x a tag is visual noise, and 10px type would break the ramp.
+- **Slide 593 · the empty cells are the point, not an omission.** The Customer lane has no node
+  at Source or Enrich because those stages happen before the customer knows us; External has
+  none at Enrich or Offer. The source line says so explicitly. Do not fill them.
+- **Slide 593 · connectors only ever join ADJACENT lanes**, routed in the column gutters. A
+  Platform→Customer link would have to cross the Cakewalk lane and cut through its nodes, so it
+  is deliberately absent and left-to-right reading carries it. The coral elbows at Source→Enrich
+  are the one coral moment: two motions merging on a single diamond at the platform.
 - **Slides 591 and 592 are a deliberate pair** and share the same 11-column US tile grid,
   the same tile geometry (92x58, radius 10, 8px gutters), the same counts-as-legend rail and the
   same coral ring on the launch markets. Change one and change the other, or they stop reading
