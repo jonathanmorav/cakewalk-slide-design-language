@@ -7,6 +7,10 @@ The visual library already lives in the Figma file (`UtxFDFaTR9GDTRcqIOKlOy`,
 positions 1–576). This folder is the **text index** of that library plus the
 Google book's extras. Do not re-draw the book in Figma.
 
+The `cakewalk-cast` subagent is the one that runs this lookup. The parent skill
+(`/cakewalk-slides`) calls it after the storyline exists. Do not skip it and
+invent a layout.
+
 ## When you are asked to create or design a slide
 
 1. Read [`archetypes.md`](archetypes.md) if you already know the type

@@ -8,6 +8,11 @@ language.** Placeholders, instructions and real-world citations stay exactly as
 written. That constraint is what makes the output usable as a template rather
 than an inspired-by deck.
 
+For a **new** Cakewalk-authored pack (board, weekly, anything from notes), do
+not start here. Use the `/cakewalk-slides` lifecycle: brief → storyline → cast
+→ build in a **new** Figma file. This document is the *recreate someone else's
+deck* path.
+
 ## 1. Get the text out
 
 Open the source in Google Slides → **File ▸ Download ▸ Plain text**. Then:

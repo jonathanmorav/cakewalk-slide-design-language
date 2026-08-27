@@ -1,0 +1,1 @@
+../../.cursor/agents/cakewalk-critique.md

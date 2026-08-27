@@ -38,6 +38,7 @@ footer on every slide, nothing out of bounds, no title/tick collisions.
 | 8 | [Recreating a deck](docs/08-recreating-a-deck.md) | Text dump → extract → layout → batch → validate |
 | 9 | [Figma theme](docs/09-figma-theme.md) | What was actually written into the live file |
 | — | [Template library](library/README.md) | Scan ~600 indexed slides, pick a type, screenshot that Figma position |
+| — | [End-to-end skill](skill/SKILL.md) | Mode, lifecycle, and which subagent runs each phase |
 
 If you only read two: **Grid** and **Pitfalls**.
 
@@ -83,6 +84,14 @@ library/
   lookup.py         python3 library/lookup.py "scorecard KPI cockpit"
   ingest.py         Rebuild the catalog from a Drive export.
   SOURCE.md         Drive id, Figma mapping, do-not-commit the raw dump.
+
+skill/SKILL.md      Orchestrator (`/cakewalk-slides`). Claude Code entry.
+cursor/cakewalk-slides/SKILL.md
+                    Same skill, Cursor entry (Figma-skills warning).
+.cursor/agents/     Subagents: brief, storyline, cast, build, critique,
+                    export, promote. `.claude/agents/` symlinks here.
+skill/references/   Brief / storyline / cast / deck-state / judgement schemas.
+decks/              One folder per real meeting pack. Not the library file.
 
 docs/               The nine documents above, plus an index.
 ```

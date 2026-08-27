@@ -156,6 +156,16 @@ as grey. Verified by cropping the tick and comparing. Ship 24-bit PNG.
 Source-slide mapping for the templates: Business Case `position === source n`;
 GTM `position = 270 + n`.
 
+## End-to-end agent
+
+`/cakewalk-slides` is the orchestrator (`skill/SKILL.md` and
+`cursor/cakewalk-slides/SKILL.md`). Phase subagents live in `.cursor/agents/`
+(`cakewalk-brief`, `storyline`, `cast`, `build`, `critique`, `export`, `promote`).
+
+Two modes: **`template`** stays in this file and keeps placeholders; **`deck`**
+opens a new Figma file and writes state under `decks/<slug>/`. Do not append
+another meeting pack to the 593 slides below.
+
 ## Template library
 
 The Google Slides file *Cakewalk Slide Template Book*

@@ -17,4 +17,8 @@ Read in order; each one settles a different layer.
 The template *library* — the index you scan before drawing a new slide — lives
 next to these docs, not inside them: [library/README.md](../library/README.md).
 
+The end-to-end agent (brief → storyline → cast → build → critique → export) is
+[skill/SKILL.md](../skill/SKILL.md), with subagents in
+[.cursor/agents/](../.cursor/agents/).
+
 If you only read two: **02-grid** and **06-pitfalls**.
