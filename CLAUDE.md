@@ -55,3 +55,17 @@ invariant is **printed page number === deck position**.
   worse than none.
 - `~/cakewalk-slide-template` consumes this language and holds the deck-specific build
   scripts. When the two disagree, this repo wins — sync, do not fork.
+
+## Two editor entry points, one source
+
+| Editor | File in this repo | Symlinked to |
+|---|---|---|
+| Claude Code | `skill/SKILL.md` | `~/.claude/skills/cakewalk-slides` |
+| Cursor | `cursor/cakewalk-slides/SKILL.md` | `~/.cursor/skills/cakewalk-slides` |
+
+Both are `/cakewalk-slides`. Edit them together — if one drifts, the two editors give different
+answers about the same deck. The Cursor copy carries one extra warning the Claude Code copy does
+not need: Cursor does **not** load Figma's own `figma-use` / `figma-use-slides` skills, so the
+Slides API rules have to come from `docs/05-slides-api.md` and `docs/06-pitfalls.md`.
+
+Never put anything in `~/.cursor/skills-cursor/` — that directory is Cursor's own built-ins.
