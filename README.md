@@ -37,6 +37,7 @@ footer on every slide, nothing out of bounds, no title/tick collisions.
 | 7 | [Chart vocabulary](docs/07-chart-vocabulary.md) | ~40 chart and diagram recipes, all from primitives |
 | 8 | [Recreating a deck](docs/08-recreating-a-deck.md) | Text dump → extract → layout → batch → validate |
 | 9 | [Figma theme](docs/09-figma-theme.md) | What was actually written into the live file |
+| — | [Template library](library/README.md) | Scan ~600 indexed slides, pick a type, screenshot that Figma position |
 
 If you only read two: **Grid** and **Pitfalls**.
 
@@ -74,6 +75,14 @@ assets/
   contact-sheet.html   Renders every asset, the band and the type ramp.
   SOURCE.md            Provenance, the crop maths behind the mark, and why the
                        SVG's clip path must be stripped before Figma import.
+
+library/
+  catalog.json      Scannable index of the Template Book (type, section, Figma
+                    position, keywords). Not a verbatim dump.
+  archetypes.md     Same index grouped by slide type — read this first.
+  lookup.py         python3 library/lookup.py "scorecard KPI cockpit"
+  ingest.py         Rebuild the catalog from a Drive export.
+  SOURCE.md         Drive id, Figma mapping, do-not-commit the raw dump.
 
 docs/               The nine documents above, plus an index.
 ```

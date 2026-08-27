@@ -27,6 +27,22 @@ Then read only the doc you need:
 | Something broke | `docs/06-pitfalls.md` |
 | Which chart to reach for | `docs/07-chart-vocabulary.md` |
 | Rebuilding someone else's deck | `docs/08-recreating-a-deck.md` |
+| Pick a template from the library | `library/README.md` |
+
+## Pick a template before drawing
+
+The Figma file already holds ~576 template slides. Scan the index, then
+screenshot the match — do not invent a layout when one exists.
+
+```
+python3 library/lookup.py "<the ask>"
+python3 library/lookup.py --archetype scorecard
+```
+
+Read `library/archetypes.md` if you already know the type. Use the top match's
+`figma_position` as the visual reference. Build in Cakewalk language; keep the
+instructional intent; do not copy Slideworks chrome. Full rules:
+`library/README.md`.
 
 ## Build loop
 
@@ -55,8 +71,10 @@ append-before-position rule.
 
 ## Common asks, and where to start
 
-- **"Add a slide"** → append a new row (`newRow`) so the page-number-equals-position
-  invariant survives. Pick an archetype from `docs/07-chart-vocabulary.md`.
+- **"Add a slide"** → `python3 library/lookup.py "<ask>"`, screenshot the
+  `figma_position`, then append a new row (`newRow`) so the
+  page-number-equals-position invariant survives. `docs/07-chart-vocabulary.md`
+  is the construction menu for whatever type you picked.
 - **"Redesign these slides to the guidelines"** → screenshot them first, then diagnose
   against `docs/04-conventions.md` and `docs/01-foundations.md`. The usual findings are
   prose set in mono, cards not sized to their content, peer elements at unequal scale, and

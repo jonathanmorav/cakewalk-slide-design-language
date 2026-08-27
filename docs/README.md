@@ -14,4 +14,7 @@ Read in order; each one settles a different layer.
 | 8 | [08-recreating-a-deck.md](08-recreating-a-deck.md) | Text dump → extract → layout → batch → validate |
 | 9 | [09-figma-theme.md](09-figma-theme.md) | What was actually written into the live Figma file |
 
+The template *library* — the index you scan before drawing a new slide — lives
+next to these docs, not inside them: [library/README.md](../library/README.md).
+
 If you only read two: **02-grid** and **06-pitfalls**.
