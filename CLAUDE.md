@@ -6,10 +6,14 @@ live file key, the section map and the open threads. The full specification is i
 
 ## Before writing any slide code
 
-1. Paste **`lib/preamble.js`** at the top of the `use_figma` call. Every helper in it
+1. Query the template library and pick a type — `python3 library/lookup.py "<ask>"`,
+   or read [library/archetypes.md](library/archetypes.md). Screenshot the
+   `figma_position` if the match has one. Do not invent a layout when a template
+   already exists. [library/README.md](library/README.md).
+2. Paste **`lib/preamble.js`** at the top of the `use_figma` call. Every helper in it
    appends before positioning, which is what avoids the Slides `(−240, −240)` bug.
-2. Pass `skillNames: "figma-use,figma-use-slides"`.
-3. Use the `fileKey` from [STATE.md](STATE.md).
+3. Pass `skillNames: "figma-use,figma-use-slides"`.
+4. Use the `fileKey` from [STATE.md](STATE.md).
 
 ## Non-negotiables
 

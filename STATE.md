@@ -156,12 +156,35 @@ as grey. Verified by cropping the tick and comparing. Ship 24-bit PNG.
 Source-slide mapping for the templates: Business Case `position === source n`;
 GTM `position = 270 + n`.
 
+## Template library
+
+The Google Slides file *Cakewalk Slide Template Book*
+(`1MfXm8Oue_aOWF_qwXvlb1F2JU8xRobCWgnpwGdM3tho`, 637 slides) is the compiled
+source of the two Slideworks templates plus a Cakewalk Strategy 2026 pack. It is
+**not** in Figma order.
+
+This repo indexes it so an agent can pick a type without screenshotting hundreds
+of slides:
+
+```
+library/catalog.json     committed index (not the verbatim dump)
+library/archetypes.md    same rows grouped by type
+library/lookup.py        python3 library/lookup.py "scorecard KPI cockpit"
+```
+
+**Mapping:** on `business-case-template` and `gtm-template` rows, `printed` ===
+Figma position (1–576). The Strategy 2026 pack reuses printed 4–47 — those are
+not Figma 4–47. See [library/SOURCE.md](library/SOURCE.md).
+
+Do not commit the raw Drive export. `library/dumps/` is gitignored.
+
 ## Reference material
 
 The plain-text exports both templates were rebuilt from are **not** in this repo (they are
 third-party source decks). They live in `~/cakewalk-slide-template/reference/`, and the
 GTM dump was worked from a session scratchpad. If you need to re-derive a slide, re-export
-from Google Slides — `lib/extract.py` reads that format.
+from Google Slides — `lib/extract.py` reads that format. The Template Book's
+committed form is the catalog above, not a second dump.
 
 ## Open threads
 

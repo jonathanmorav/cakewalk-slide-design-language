@@ -49,10 +49,17 @@ the other's, so eight slides were cloned wholesale and the cover adapted.
 
 ## 4. Design the layout per slide, then batch
 
-For each slide, decide the archetype before writing code — table, matrix, chart +
-rail, card row, swimlane. [07-chart-vocabulary](07-chart-vocabulary.md) is the
-menu. Then build **4–6 slides per `use_figma` call** with the preamble pasted at
-the top.
+For each slide, pick the archetype before writing code. Scan the library first
+so you reuse a type that already exists:
+
+```bash
+python3 library/lookup.py "options analysis 2x2"
+```
+
+Screenshot the top match's `figma_position`. [07-chart-vocabulary](07-chart-vocabulary.md)
+is the construction menu; [library/README.md](../library/README.md) is the
+picker. Then build **4–6 slides per `use_figma` call** with the preamble pasted
+at the top.
 
 Group structurally similar slides into one batch. A batch that builds five
 variants of the same table is fast to write and fast to fix.
