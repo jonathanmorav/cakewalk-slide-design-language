@@ -162,6 +162,13 @@ GTM `position = 270 + n`.
 `cursor/cakewalk-slides/SKILL.md`). Phase subagents live in `.cursor/agents/`
 (`cakewalk-brief`, `storyline`, `cast`, `build`, `critique`, `export`, `promote`).
 
+How a deck thinks: [docs/10-slide-method.md](docs/10-slide-method.md), distilled
+from the Slideworks Business Case
+(`1tcjXDF-3XG0MILfwRmOdbeOKuVAVjb4rNTbRzz0mcIk`) and GTM
+(`1ZA2PyT5bve_C5I1SI35i5yGte4aQX6lOmBTT2-gy7V8`) best-practice guides. Method
+only — do not copy their chrome. Framing questions:
+[skill/references/framing-questions.md](skill/references/framing-questions.md).
+
 Two modes: **`template`** stays in this file and keeps placeholders; **`deck`**
 opens a new Figma file and writes state under `decks/<slug>/`. Do not append
 another meeting pack to the 593 slides below.

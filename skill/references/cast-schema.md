@@ -3,9 +3,19 @@
 Each storyline claim gets one library slide (or an explicit `rebuild`).
 Written after the storyline, before Figma.
 
+Before looking anything up, write **What / Why / How** for each section
+([docs/10-slide-method.md](../../docs/10-slide-method.md) §7,
+[framing-questions.md](framing-questions.md)). A section without a Why is
+not ready to cast.
+
 ```yaml
 slug: board-gtm-sept-2026
 library_file: UtxFDFaTR9GDTRcqIOKlOy
+sections:
+  - name: markets
+    what:                    # how many slides, what they contain
+    why:                     # what this section does to the reader
+    how:                     # the moves (start with why, include do-nothing, …)
 rows:
   - claim_id: S1
     claim:

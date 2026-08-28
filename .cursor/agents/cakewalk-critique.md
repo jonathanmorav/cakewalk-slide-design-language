@@ -25,20 +25,31 @@ Read `docs/04-conventions.md` against those screenshots: prose in mono, cards
 not sized to content, peer elements at unequal scale, off-token type, coral
 used more than once.
 
-## Content (deck mode only)
+## Method (deck mode)
 
-Read the brief, storyline, cast, and `skill/references/judgement-log.md`.
+Read `docs/10-slide-method.md` §10, the brief, storyline, cast, and
+`skill/references/judgement-log.md`. Run the **content checklist** first.
 
-Check:
+Required:
 
-- Every storyline `must_land` claim has a slide.
+- Title-only test on the *built* titles (not just the storyline YAML). Paste
+  them in order. Fail → storyline rewrite, not polish.
+- Pyramid: the answer is on the first content slide.
+- One message per slide (two-line title test).
+- Every body supports its title. No orphan charts.
 - Every numeral has a brief source. If not, it is a finding, not a polish note.
-- Inferences are visible in the judgement log, not only in the title.
-- Disputed facts were not averaged onto one confident slide.
+- Every chart has a source and axis units.
+- Decision spines: do-nothing is present, or an explicit reason it is not.
+- The ask and the next step are on a slide.
+- Every `must_land` claim has a slide.
+- Inferences are in the judgement log. Disputes were not averaged.
 - Coral marks the miss or the decision, not decoration.
 
 Template mode: skip content fill checks. Confirm placeholders are still
-placeholders.
+placeholders. Still run title-only if new template titles were written.
+
+A failed title-only test is a **no-go**, same as a missing `must_land` or a
+forbidden number.
 
 ## Return
 

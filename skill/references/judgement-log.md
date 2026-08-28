@@ -25,6 +25,15 @@ Plain-text / transcript order was ambiguous. What we did:
 ## Forbidden that were asked for
 Numbers or claims the brief marked forbidden and that did not ship.
 
+## Method ([docs/10-slide-method.md](../../docs/10-slide-method.md) §10)
+
+Title-only test (pass / fail) — paste the titles in order if it failed.
+One-message / two-line-title failures:
+Pyramid (answer on slide 1, not slide 14):
+Do-nothing / options:
+Every number sourced:
+Ask and next step are on a slide:
+
 ## Validate
 `lib/validate.js` batch + deck: clean / not, and what was ignored on purpose
 (e.g. export-staging slides with no page number).

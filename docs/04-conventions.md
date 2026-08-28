@@ -10,6 +10,8 @@ a reviewer will notice if you break them.
   significant room to grow" is a title.
 - A reader should be able to read only the titles, top to bottom, and get the
   whole argument. If they cannot, the storyline is wrong — not the formatting.
+  That test, the pyramid, and the What / Why / How section gate are
+  [10-slide-method](10-slide-method.md).
 - **One message per slide.** If you cannot state the slide in a two-line title,
   split it.
 - Titles are Bold 48 in a 1744-wide box. Two lines is normal and fine; the tick

@@ -13,7 +13,8 @@ decks/<slug>/
 ```
 
 Schemas: `skill/references/`. The parent `/cakewalk-slides` skill writes these
-after each subagent returns.
+after each subagent returns. How the pack thinks:
+[docs/10-slide-method.md](../docs/10-slide-method.md).
 
 Operating slides that already live at library positions 577–593 are history;
 new work like them starts a folder here and a **new** Figma Slides file.

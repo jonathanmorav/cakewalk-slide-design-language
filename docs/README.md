@@ -13,6 +13,7 @@ Read in order; each one settles a different layer.
 | 7 | [07-chart-vocabulary.md](07-chart-vocabulary.md) | Chart and diagram recipes, all from primitives |
 | 8 | [08-recreating-a-deck.md](08-recreating-a-deck.md) | Text dump → extract → layout → batch → validate |
 | 9 | [09-figma-theme.md](09-figma-theme.md) | What was actually written into the live Figma file |
+| 10 | [10-slide-method.md](10-slide-method.md) | One question, spine, pyramid, title-only test, What / Why / How |
 
 The template *library* — the index you scan before drawing a new slide — lives
 next to these docs, not inside them: [library/README.md](../library/README.md).

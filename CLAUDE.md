@@ -6,7 +6,8 @@ live file key, the section map and the open threads. The full specification is i
 
 The end-to-end loop (brief → storyline → cast → build → critique → export) lives in
 [`/cakewalk-slides`](skill/SKILL.md). Phase work is delegated to the subagents in
-[`.cursor/agents/`](.cursor/agents/).
+[`.cursor/agents/`](.cursor/agents/). How a deck thinks:
+[docs/10-slide-method.md](docs/10-slide-method.md).
 
 ## Mode
 
@@ -61,8 +62,10 @@ invariant is **printed page number === deck position**.
 
 - **`template` mode:** placeholder copy is deliberate and verbatim. `[Insert segment]` is
   an instruction to the next author. Never fill it in, paraphrase it, or tidy the brackets.
-- **`deck` mode:** every numeral has a brief source. Inferences are labeled. Disputes are
-  not averaged. See [skill/references/brief-schema.md](skill/references/brief-schema.md).
+- **`deck` mode:** one question, a spine, answer first, action titles that pass a
+  title-only test. Every numeral has a brief source. Inferences are labeled.
+  Disputes are not averaged. [docs/10-slide-method.md](docs/10-slide-method.md),
+  [skill/references/brief-schema.md](skill/references/brief-schema.md).
 - When recreating a reference deck: **same words, Cakewalk layout.** Both constraints hold
   at once — keep the copy exactly, change only the visual language.
 - A plain-text export flattens z-order, so on dense slides you will have to infer groupings.

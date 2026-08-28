@@ -11,7 +11,16 @@ readonly: true
 
 You pick types. You do not draw.
 
-Read `skill/references/cast-schema.md`, `library/README.md`, and the storyline.
+Read `docs/10-slide-method.md` §7, `skill/references/framing-questions.md`,
+`skill/references/cast-schema.md`, `library/README.md`, and the storyline.
+
+If the storyline has no title-only pass, send it back. Do not cast a topic pile.
+
+## What / Why / How first
+
+For each section in the spine, write `what` / `why` / `how` (schema
+`sections:`). Use the framing questions. Then look up templates.
+
 For each `must_land` claim first, then the rest:
 
 ```bash

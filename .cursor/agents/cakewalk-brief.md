@@ -13,8 +13,9 @@ readonly: true
 You write the brief. You do not open Figma and you do not pick layouts.
 
 The repo is `~/cakewalk-slide-design-language` (or `/workspace` on a Cloud Agent).
-Read `skill/references/brief-schema.md` and fill that schema. Return the YAML
-plus a short source list. The parent writes it to `decks/<slug>/BRIEF.md`.
+Read `docs/10-slide-method.md` and `skill/references/framing-questions.md`, then
+fill `skill/references/brief-schema.md`. Return the YAML plus a short source
+list. The parent writes it to `decks/<slug>/BRIEF.md`.
 
 ## Mode
 
@@ -38,11 +39,19 @@ These are inputs to the brief, not things that draw slides.
 
 ## Hard rules
 
+- **One question.** If `question` is a topic, rewrite it as a question or stop.
+  Decision → "What happens if we take this course of action?" Playbook → launch
+  vs growth (see the method doc). Weekly → "What changed, and what do you need
+  from us now?"
+- **Spine.** `kind: decision` → `scr`. `kind: playbook` → `gtm`. Do not invent a
+  third spine. A business case is not a business plan; a GTM is not a product
+  strategy — if the ask is the other document, say so.
+- **Six audience answers** (`ask`, `values`, `format`, `risk`, `gain`, `decider`).
+  `unknown` is allowed; guessing is not.
 - Every numeral gets a `sources` row (`kind`, `id`, `date`, `what`).
 - If two sources disagree, put the fact in `disputed`. Do not average.
 - Anything you inferred goes in `inferences` with `needs: propose`.
 - `forbidden` lists numbers you must not invent (targets, win rates, licence counts, headcount) unless a source states them.
-- Write `unknown` rather than guessing audience, decision, or timebox.
 - Suggest `canonical: figma` unless the user said the room is a Google deck they will edit live — then `google`, and note that export is PNG-and-place today.
 - Propose a `slug` (`board-gtm-sept-2026` style). Do not create the Figma file.
 

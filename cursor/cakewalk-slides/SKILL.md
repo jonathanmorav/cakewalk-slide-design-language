@@ -57,11 +57,21 @@ pack to the 593-slide template file.
 
 ```
 sources → brief → storyline → cast → build → critique → export
+              │         │         │
+              │         │         └ What / Why / How, then lookup
+              │         └ pyramid + action titles + title-only test
+              └ one question, spine, six audience answers
                                               ↘ promote (optional)
 ```
 
+The method behind those gates is
+`~/cakewalk-slide-design-language/docs/10-slide-method.md`.
+Read it at the start of every `deck` run. Framing questions:
+`~/cakewalk-slide-design-language/skill/references/framing-questions.md`.
+
 `template` mode skips brief/storyline content and export unless asked; it still
-**casts** then **builds**. `deck` mode runs the whole line.
+**casts** then **builds**. `deck` mode runs the whole line. A storyline that
+fails the title-only test does not proceed to cast.
 
 ## Delegation — use these subagents
 
@@ -92,6 +102,8 @@ Schemas the parent writes to disk, all under `~/cakewalk-slide-design-language/`
 | Cast | `skill/references/cast-schema.md` | `decks/<slug>/CAST.md` |
 | Deck state | `skill/references/deck-state.md` | `decks/<slug>/STATE.md` |
 | Judgement | `skill/references/judgement-log.md` | `decks/<slug>/JUDGEMENT.md` |
+| Method | `docs/10-slide-method.md` | (read, do not copy) |
+| Framing | `skill/references/framing-questions.md` | (read per section) |
 
 ## Orient (every run)
 
@@ -112,6 +124,7 @@ Then only the doc you need, under `~/cakewalk-slide-design-language/docs/`:
 | Chart recipes | `07-chart-vocabulary.md` |
 | Recreate a reference | `08-recreating-a-deck.md` |
 | Theme a new file | `09-figma-theme.md` |
+| How a deck thinks | `10-slide-method.md` |
 | Scan the library | `~/cakewalk-slide-design-language/library/README.md` |
 
 ## Review gates

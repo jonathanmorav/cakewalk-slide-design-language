@@ -32,11 +32,20 @@ pack to the 593-slide template file.
 
 ```
 sources → brief → storyline → cast → build → critique → export
+              │         │         │
+              │         │         └ What / Why / How, then lookup
+              │         └ pyramid + action titles + title-only test
+              └ one question, spine, six audience answers
                                               ↘ promote (optional)
 ```
 
+The method behind those gates is [`docs/10-slide-method.md`](../docs/10-slide-method.md).
+Read it at the start of every `deck` run. Framing questions:
+[`skill/references/framing-questions.md`](references/framing-questions.md).
+
 `template` mode skips brief/storyline content and export unless asked; it still
-**casts** then **builds**. `deck` mode runs the whole line.
+**casts** then **builds**. `deck` mode runs the whole line. A storyline that
+fails the title-only test does not proceed to cast.
 
 ## Delegation — use these subagents
 
@@ -66,6 +75,8 @@ Schemas the parent writes to disk:
 | Cast | `skill/references/cast-schema.md` | `decks/<slug>/CAST.md` |
 | Deck state | `skill/references/deck-state.md` | `decks/<slug>/STATE.md` |
 | Judgement | `skill/references/judgement-log.md` | `decks/<slug>/JUDGEMENT.md` |
+| Method | `docs/10-slide-method.md` | (read, do not copy) |
+| Framing | `skill/references/framing-questions.md` | (read per section) |
 
 ## Orient (every run)
 
@@ -87,6 +98,7 @@ Then only the doc you need:
 | Chart recipes | `docs/07-chart-vocabulary.md` |
 | Recreate a reference | `docs/08-recreating-a-deck.md` |
 | Theme a new file | `docs/09-figma-theme.md` |
+| How a deck thinks | `docs/10-slide-method.md` |
 | Scan the library | `library/README.md` |
 
 ## Review gates
