@@ -81,6 +81,9 @@ not restate it.
 - `figma.notify()` throws "not implemented".
 - `loadAllPagesAsync`, `setPluginData`, `createImageAsync` are unsupported.
 - `get_metadata` does not work on Slides files — use a read-only script.
+- No PowerPoint from the Plugin API or the MCP. `exportAsync` /
+  `download_assets` are `png | jpg | svg | pdf`. Editable `.pptx` is
+  **File → Export slides to** only — [docs/11-export.md](11-export.md).
 - Always return created/mutated node ids so the next call can reference them.
 - `figma.currentPage` resets to the first page every call; the sandbox keeps no
   state between calls, so the preamble must be pasted each time.

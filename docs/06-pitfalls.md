@@ -192,6 +192,8 @@ calls, and `figma.currentPage` resets to the first page each time.
 - `loadAllPagesAsync`, `setPluginData`, `createImageAsync` are unsupported.
 - Rotation on text is fragile; for a vertical axis label prefer a horizontal
   label plus an arrow, or a gradient bar with the label above it.
+- No `.pptx` from `use_figma` or `download_assets`. The File menu is the
+  only editable PowerPoint path — [docs/11-export.md](11-export.md).
 
 ---
 
@@ -266,3 +268,19 @@ A related trap when patching numbers into existing cells: filter on **two** prop
 one. `x === 808` also matched the 48px-tall header cell, so the header was overwritten with
 a figure. Adding `height === 70` fixed it. Same lesson as pitfall 4 — one coordinate is
 never a selector.
+
+---
+
+### 16. Export is an editable PowerPoint, or it is nothing
+
+`download_assets` and `exportAsync` cannot write `.pptx`. Wrapping a 1920×1080
+PNG (or an SVG) in a pptx is a picture deck — text is not editable, the
+spectrum band is a bitmap, and it is not what Jonathan asked for.
+
+The only ship path is Figma Slides **File → Export slides to → PPTX** with
+**convert all objects to editable PPTX equivalent**, saved to
+`~/Cakewalk/slides/`. Gradients become solid; missing fonts fall back. Say
+that. Do not "fix" it by flattening to images.
+
+Critique screenshots stay diagnostic. They are not an export.
+[docs/11-export.md](11-export.md).

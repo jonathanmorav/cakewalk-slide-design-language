@@ -1,123 +1,190 @@
 ---
 name: cakewalk-slides
 description: >-
-  Build, edit or redesign slides in the Cakewalk Figma Slides decks using the
-  Cakewalk slide design language — 88px grid, spectrum band, sans/mono split,
-  the helper preamble and the deck validator. Use whenever the task involves
-  Cakewalk slides, a Figma Slides file, recreating a reference deck, or
-  redesigning existing slides to the Cakewalk guidelines.
+  End-to-end Cakewalk slides: read the design language, pick a template from
+  the library, fill a meeting deck from Gmail / Pocket / Zoom / Drive context,
+  build in Figma Slides, export as an editable PowerPoint to
+  ~/Cakewalk/slides/. Use whenever the task involves Cakewalk slides, a
+  Figma Slides file, a board or weekly deck, recreating a reference, or
+  redesigning slides to the guidelines.
 disable-model-invocation: true
 ---
 
 # Cakewalk slides
 
-The design language, the live decks' state and the build workflow live in
-`~/cakewalk-slide-design-language` (private repo, `jonathanmorav/cakewalk-slide-design-language`).
-Paths below are absolute because this skill is global — Cursor may be open in any project.
+The design language and the live library live in
+`~/cakewalk-slide-design-language` (private repo,
+`jonathanmorav/cakewalk-slide-design-language`). Paths below are absolute
+because this skill is global — Cursor may be open in any project.
+
+This skill is the orchestrator. Phase work is delegated to project subagents
+under that repo's `.cursor/agents/`.
 
 ## Read this before Cursor-specific setup bites you
 
-**Cursor does not load Figma's own `figma-use` / `figma-use-slides` skills.** Those ship with
-the Claude Code Figma plugin and carry the Slides API rules that make the difference between a
-working deck and 40 nodes at (−240, −240). In Cursor you get the MCP tools and nothing else, so
-**read these two files before writing a single `use_figma` call**:
+**Cursor does not load Figma's own `figma-use` / `figma-use-slides` skills.**
+Those ship with the Claude Code Figma plugin. In Cursor you get the MCP tools
+and nothing else, so **read these two files before writing a single
+`use_figma` call** (or before delegating to `cakewalk-build`):
 
-- `~/cakewalk-slide-design-language/docs/05-slides-api.md` — hierarchy, sections, addressing, limits
-- `~/cakewalk-slide-design-language/docs/06-pitfalls.md` — the fifteen failure modes
+- `~/cakewalk-slide-design-language/docs/05-slides-api.md`
+- `~/cakewalk-slide-design-language/docs/06-pitfalls.md`
 
-Still pass `skillNames: "figma-use,figma-use-slides"` on every `use_figma` call. It is a logging
-parameter, it costs nothing, and it keeps telemetry consistent with the Claude Code side.
+Still pass `skillNames: "figma-use,figma-use-slides"` on every `use_figma`
+call. If those skills were loaded as MCP resources, pass
+`resource:figma-use,resource:figma-use-slides` instead.
 
-## Orient first — two files, in this order
-
-1. **`~/cakewalk-slide-design-language/STATE.md`** — the live `fileKey`s, slide counts, the full
-   section map, which positions are template vs real content, and the open threads. Read this
-   before touching anything; it is what makes resuming cheap.
-2. **`~/cakewalk-slide-design-language/CLAUDE.md`** — the non-negotiables in one screen.
-
-Then read only the doc you need, all under `~/cakewalk-slide-design-language/docs/`:
-
-| Need | Doc |
-|---|---|
-| Colour, ramps, the type ramp, radii | `01-foundations.md` |
-| Where things sit on the slide | `02-grid.md` |
-| Spectrum band, cropped mark, tonal arc | `03-motifs.md` |
-| Action titles, coral, cards, pills, bullets | `04-conventions.md` |
-| Slides hierarchy, sections, addressing, limits | `05-slides-api.md` |
-| Something broke | `06-pitfalls.md` |
-| Which chart to reach for | `07-chart-vocabulary.md` |
-| Rebuilding someone else's deck | `08-recreating-a-deck.md` |
-| Pick a template from the library | `~/cakewalk-slide-design-language/library/README.md` |
-
-## Pick a template before drawing
-
-The Figma file already holds ~576 template slides. Scan the index, then
-screenshot the match — do not invent a layout when one exists.
-
-```
-python3 ~/cakewalk-slide-design-language/library/lookup.py "<the ask>"
-python3 ~/cakewalk-slide-design-language/library/lookup.py --archetype scorecard
-```
-
-Read `~/cakewalk-slide-design-language/library/archetypes.md` if you already know
-the type. Use the top match's `figma_position` as the visual reference. Build in
-Cakewalk language; keep the instructional intent; do not copy Slideworks chrome.
-Full rules: `~/cakewalk-slide-design-language/library/README.md`.
-
-## Build loop
-
-```
-paste lib/preamble.js  +  slide code      → use_figma, 4-6 slides per call,
-                                            skillNames "figma-use,figma-use-slides"
-paste lib/validate.js  MODE='batch'       → catches bounds, overlap, clipping, title/tick
-screenshot the densest slide + anything flagged
-… repeat …
-paste lib/validate.js  MODE='deck'        → before calling it finished
-lib/renumber.js (dry-run first)           → only if you inserted or reordered
-update STATE.md                           → if the deck's shape changed
-```
-
-`lib/preamble.js` gives you `head()` (returns the content y after measuring the title),
-`newRow()`, `divider()`, `guide()`, `footer()`, `mw()` clone-measure, the `C` palette, the
-`BAND` stops and the `G` grid constants. Do not hand-roll these — the helpers encode the
-append-before-position rule.
-
-## The four rules most often broken
-
-- **Append before positioning.** Every node, every level. Never compensate with +240.
-- **Content y comes from `head()`**, never a literal `252` — the tick moves when a title wraps.
-- **Sans for prose, mono for facts.** Prose in mono is the fastest way to stop looking like Cakewalk.
-- **Coral marks one thing per slide.** Peer sets use `coral / blue600 / mint`.
-
-## Common asks, and where to start
-
-- **"Add a slide"** → `python3 ~/cakewalk-slide-design-language/library/lookup.py "<ask>"`,
-  screenshot the `figma_position`, then append a new row (`newRow`) so the
-  page-number-equals-position invariant survives. `docs/07-chart-vocabulary.md`
-  is the construction menu for whatever type you picked.
-- **"Redesign these slides to the guidelines"** → screenshot them first, then diagnose
-  against `docs/04-conventions.md` and `docs/01-foundations.md`. The usual findings are
-  prose set in mono, cards not sized to their content, peer elements at unequal scale, and
-  off-token type sizes. Keep every word; change structure and type only.
-- **"Recreate this deck"** → `docs/08-recreating-a-deck.md`. Export to plain text, read it
-  with `lib/extract.py`, fix the position mapping before building anything.
-- **"Change a brand value"** → edit `tokens/tokens.json`, then `node tokens/gen-css.mjs`.
-
-## Deck-specific build scripts
-
-`~/cakewalk-slide-template` holds the reproducible per-slide scripts for the template, plus
-an offline harness (`node dryrun.mjs batches/batch-*.js`) that validates colours,
-coordinates, fonts and node ids without spending a Figma call. It carries **two grids** —
-`_preamble.js` is the legacy 128px one bound to `build.sh`; `_preamble-88.js` is the current
-one. Never edit the legacy preamble to the current grid.
-
-## Requires the Figma MCP server
-
-This skill is inert without it. Cursor needs `figma` in `~/.cursor/mcp.json`:
+This skill is inert without the Figma MCP. Confirm `use_figma` exists before
+promising Figma work:
 
 ```json
 "figma": { "type": "http", "url": "https://mcp.figma.com/mcp" }
 ```
 
-Restart Cursor after adding it, and confirm the `use_figma` tool is available before promising
-any Figma work. If it is missing, say so rather than writing build scripts that cannot run.
+## Declare a mode before anything else
+
+| Mode | Job | Content | File |
+|---|---|---|---|
+| `template` | Grow or restyle the library | Placeholders stay verbatim (`[Insert segment]`) | `UtxFDFaTR9GDTRcqIOKlOy` |
+| `deck` | Ship a meeting | Real claims, sourced numerals | A **new** Figma file, state under `decks/<slug>/` |
+
+These rules are opposites. If the user did not say which, infer from the ask
+and **say the mode out loud**.
+
+Never fill the library file from Gmail, Pocket, or Zoom. Never append a board
+pack to the 593-slide template file.
+
+## Lifecycle
+
+```
+sources → brief → storyline → cast → build → critique → export
+              │         │         │
+              │         │         └ What / Why / How, then lookup
+              │         └ pyramid + action titles + title-only test
+              └ one question, spine, six audience answers
+                                              ↘ promote (optional)
+```
+
+The method behind those gates is
+`~/cakewalk-slide-design-language/docs/10-slide-method.md`.
+Read it at the start of every `deck` run. Framing questions:
+`~/cakewalk-slide-design-language/skill/references/framing-questions.md`.
+
+`template` mode skips brief/storyline content and export unless asked; it still
+**casts** then **builds**. `deck` mode runs the whole line. A storyline that
+fails the title-only test does not proceed to cast.
+
+## Delegation — use these subagents
+
+Registered from `~/cakewalk-slide-design-language/.cursor/agents/` (Cloud Agents
+see the same files in the cloned repo). Pass a self-contained prompt; they do
+not see this conversation.
+
+| Phase | Subagent | Isolated? |
+|---|---|---|
+| Context → brief | `cakewalk-brief` | yes, readonly |
+| Brief → claims | `cakewalk-storyline` | yes, readonly |
+| Claims → library rows | `cakewalk-cast` | yes, readonly |
+| Draw in Figma | `cakewalk-build` | yes |
+| Validate + judgement | `cakewalk-critique` | yes, readonly |
+| Figma → PowerPoint | `cakewalk-export` | yes |
+| Meeting slide → library | `cakewalk-promote` | yes |
+
+If the Task/Agent tool does not list a name, **read that agent file and run it
+in-process**. Do not invent a `subagent_type`. Do not launch a subagent from a
+subagent.
+
+Schemas the parent writes to disk, all under `~/cakewalk-slide-design-language/`:
+
+| Artifact | Schema | Path |
+|---|---|---|
+| Brief | `skill/references/brief-schema.md` | `decks/<slug>/BRIEF.md` |
+| Storyline | `skill/references/storyline-schema.md` | `decks/<slug>/STORYLINE.md` |
+| Cast | `skill/references/cast-schema.md` | `decks/<slug>/CAST.md` |
+| Deck state | `skill/references/deck-state.md` | `decks/<slug>/STATE.md` |
+| Judgement | `skill/references/judgement-log.md` | `decks/<slug>/JUDGEMENT.md` |
+| Method | `docs/10-slide-method.md` | (read, do not copy) |
+| Framing | `skill/references/framing-questions.md` | (read per section) |
+
+## Orient (every run)
+
+1. **`~/cakewalk-slide-design-language/STATE.md`**
+2. **`~/cakewalk-slide-design-language/CLAUDE.md`**
+3. In `deck` mode, **`decks/<slug>/STATE.md`** once it exists.
+
+Then only the doc you need, under `~/cakewalk-slide-design-language/docs/`:
+
+| Need | Doc |
+|---|---|
+| Colour, type, radii | `01-foundations.md` |
+| Grid, moving tick | `02-grid.md` |
+| Spectrum, mark, tonal arc | `03-motifs.md` |
+| Titles, coral, cards, pills | `04-conventions.md` |
+| Slides API | `05-slides-api.md` |
+| Something broke | `06-pitfalls.md` |
+| Chart recipes | `07-chart-vocabulary.md` |
+| Recreate a reference | `08-recreating-a-deck.md` |
+| Theme a new file | `09-figma-theme.md` |
+| How a deck thinks | `10-slide-method.md` |
+| Editable PowerPoint | `11-export.md` |
+| Scan the library | `~/cakewalk-slide-design-language/library/README.md` |
+
+## Review gates
+
+| Bucket | Examples | Who |
+|---|---|---|
+| **Auto** | Chrome, grid, restyle, placeholder templates, validate-clean | agent |
+| **Propose** | Storyline, action titles, inferred groupings, which template was cast | show Jonathan, then build |
+| **Stop** | A new number, org/ownership, anything that will be in the room on a date | wait |
+
+`cakewalk-critique` writes the judgement log. Silent normalisation is a bug.
+
+## Common asks
+
+- **"Build me the board / weekly pack from our notes"** → mode `deck`.
+  `cakewalk-brief` → `storyline` → `cast` → `build` (new file) → `critique` →
+  `export` if `export_to` is set.
+- **"Add a slide"** → cast, then build. `template`: library file, placeholders
+  verbatim. `deck`: meeting file, sourced content.
+- **"Which template should this be?"** → `cakewalk-cast` only.
+- **"Redesign these to the guidelines"** → screenshot, diagnose against
+  `docs/04` / `docs/01`, keep every word, `cakewalk-build`.
+- **"Recreate this deck"** → `docs/08-recreating-a-deck.md`, then `cakewalk-build`.
+- **"Export" / "save as PowerPoint" / "put this on my computer"** →
+  `cakewalk-critique` then `cakewalk-export`. Editable `.pptx` only, to
+  `~/Cakewalk/slides/`. No PNG, no SVG, no picture-pptx.
+  `~/cakewalk-slide-design-language/docs/11-export.md`.
+- **"Put this in Google"** → same export first (editable pptx on disk).
+  Google is a later optional open of that file, not PNG-and-place.
+- **"Keep this as a template"** → `cakewalk-promote`.
+- **"Change a brand value"** → `tokens/tokens.json`, then `node tokens/gen-css.mjs`.
+
+## Build loop (if you are in-process)
+
+```
+paste lib/preamble.js  +  slide code      → use_figma, 4–6 slides,
+                                            skillNames "figma-use,figma-use-slides"
+paste lib/validate.js  MODE='batch'
+screenshot the densest slide + flags
+paste lib/validate.js  MODE='deck'
+lib/renumber.js (dry-run)                 → only after insert/reorder
+update the right STATE.md
+```
+
+Four rules that get broken: append before positioning; content y from `head()`;
+sans for prose / mono for facts; coral marks one thing.
+
+## Library mapping in one line
+
+`printed` on a Business Case or GTM catalog row **is** the Figma position.
+Strategy 2026 extras reuse printed 4–47 — those are not Figma 4–47.
+
+```
+python3 ~/cakewalk-slide-design-language/library/lookup.py "<ask>"
+```
+
+## Deck-specific scripts
+
+`~/cakewalk-slide-template` holds per-slide scripts and `dryrun.mjs`. It
+carries two grids: `_preamble.js` is legacy 128px; `_preamble-88.js` is current.
+Never edit the legacy preamble to the current grid.

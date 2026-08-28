@@ -15,6 +15,9 @@ Slides         593        Rows (sections)  50
 Grid           88px       (see docs/02-grid.md)
 Logo masters   4:8   Cakewalk Wordmark (master)   ratio 5.902439
                4:27  Cakewalk Mark (master)       ratio 0.917912
+Export         ~/Cakewalk/slides/Cakewalk-Slide-Template.pptx
+               Figma File → Export slides to → PPTX, editable objects
+               See docs/11-export.md. No PNG, no SVG, no picture-pptx.
 ```
 
 Node ids are file-specific. If you fork the file, re-resolve the masters by name —
@@ -128,33 +131,59 @@ already in this deck. Every derivation, so a reader can audit it:
 | 586 | Product areas = the four lifecycle stages from board-deck slide 8 (`Buy` / `Enroll` / `Administer` / `Renew & Expand`), with each column's process steps also from slide 8. |
 | 586 | **Buyer-to-area mapping is inferred, not sourced.** Slide 8 lists stakeholders and stages but never maps them. The call made: Buy → owners + partners; Enroll and Administer → the person running benefits + employees; Renew & Expand → owners + partners + carriers. This is the one judgement on these two slides that a reviewer should check first. |
 
-### Export artifacts
+### Export
+
+Ship path is **editable PowerPoint** on Jonathan's machine
+([docs/11-export.md](docs/11-export.md)):
 
 ```
-PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png   1920x1080
-       ~/cakewalk-slide-template/export/slide-587-gtm-organization.png           1920x1080
-       ~/cakewalk-slide-template/export/slide-588-points-of-entry.png            1920x1080
-       ~/cakewalk-slide-template/export/slide-589-gtm-swimlane.png               1920x1080
-       ~/cakewalk-slide-template/export/slide-590-gtm-distribution.png           1920x1080
-       ~/cakewalk-slide-template/export/slide-591-state-licensing.png            1920x1080
-       ~/cakewalk-slide-template/export/slide-592-tpa-licensing.png              1920x1080
-       ~/cakewalk-slide-template/export/slide-593-operating-model.png            1920x1080
+~/Cakewalk/slides/Cakewalk-Slide-Template.pptx     library file
+~/Cakewalk/slides/YYYY-MM-DD-<slug>.pptx           meeting packs
+```
+
+Figma desktop → **File → Export slides to → PPTX** → convert objects to
+editable PPTX. The MCP cannot do this. Do not export PNG or SVG of slides.
+Do not wrap images in a pptx.
+
+### Historical image exports (do not repeat)
+
+Board-week work in August 2026 used 1920×1080 PNG → picture-pptx → rclone
+into Google. That path is retired. The files still exist on disk as a
+record, not a recipe:
+
+```
+PNGs   ~/cakewalk-slide-template/export/board-sept2/slide-{08,09,10,11}-*.png
+       ~/cakewalk-slide-template/export/slide-587-gtm-organization.png
+       ~/cakewalk-slide-template/export/slide-588-points-of-entry.png
+       ~/cakewalk-slide-template/export/slide-589-gtm-swimlane.png
+       ~/cakewalk-slide-template/export/slide-590-gtm-distribution.png
+       ~/cakewalk-slide-template/export/slide-591-state-licensing.png
+       ~/cakewalk-slide-template/export/slide-592-tpa-licensing.png
+       ~/cakewalk-slide-template/export/slide-593-operating-model.png
 pptx   ~/cakewalk-slide-template/export/board-sept2/cakewalk-board-slides-08-11.pptx
-Drive  "Cakewalk board slides 08-11 (Cakewalk design)"  (native Google Slides, My Drive root)
+Drive  "Cakewalk board slides 08-11 (Cakewalk design)"
        1jiszTQrZeH-C8C0wG477Fukt0pma1rPd1hqyJ5Oy24g
 ```
 
-Uploaded with `rclone copy <file> gdrive: --drive-import-formats pptx`, which converts to a
-native Google Slides file on the way in. **`rclone` with a working `gdrive:` remote is the
-only write path to Drive here** — the MCP Drive tool can only change a file's title and
-folder, and pushing base64 through a tool call is enormous by comparison.
-
-Do **not** palette-quantize these exports to save space. 128 colours halves the file and
-visibly destroys the spectrum band — it breaks into flat chunks and the opening mint reads
-as grey. Verified by cropping the tick and comparing. Ship 24-bit PNG.
-
 Source-slide mapping for the templates: Business Case `position === source n`;
 GTM `position = 270 + n`.
+
+## End-to-end agent
+
+`/cakewalk-slides` is the orchestrator (`skill/SKILL.md` and
+`cursor/cakewalk-slides/SKILL.md`). Phase subagents live in `.cursor/agents/`
+(`cakewalk-brief`, `storyline`, `cast`, `build`, `critique`, `export`, `promote`).
+
+How a deck thinks: [docs/10-slide-method.md](docs/10-slide-method.md), distilled
+from the Slideworks Business Case
+(`1tcjXDF-3XG0MILfwRmOdbeOKuVAVjb4rNTbRzz0mcIk`) and GTM
+(`1ZA2PyT5bve_C5I1SI35i5yGte4aQX6lOmBTT2-gy7V8`) best-practice guides. Method
+only — do not copy their chrome. Framing questions:
+[skill/references/framing-questions.md](skill/references/framing-questions.md).
+
+Two modes: **`template`** stays in this file and keeps placeholders; **`deck`**
+opens a new Figma file and writes state under `decks/<slug>/`. Do not append
+another meeting pack to the 593 slides below.
 
 ## Template library
 
@@ -378,10 +407,10 @@ committed form is the catalog above, not a second dump.
   slide. Slide 9's column C carries the same problem in its five bullets
   ("Control time to completion", "Maintain commitment to quality") — those were kept
   verbatim as asked, and are flagged rather than invented over.
-- **No Google Slides write path exists.** Drive's `update_file` covers title and parent only;
-  there is no Slides API tool in this environment. Figma → Google is export-PNG-and-place,
-  which flattens the slide to an image. Anything needing native editable Google Slides has
-  to be rebuilt there by hand.
+- **Export is Figma's File menu, not the MCP.** Editable `.pptx` lands in
+  `~/Cakewalk/slides/`. There is no PNG/SVG/picture-pptx path, and Drive still
+  cannot write slide bodies. Open the PowerPoint in Google only after it exists
+  on disk, and only if asked.
 - **The board deck's own page numbers are wrong** — slides 8-11 print 527-530, inherited
   from the Slideworks template. Worth a renumber pass in Google before Sept 2.
 - **Google is ahead of Figma on wording, and nothing syncs it.** As of 2026-08-26 the deck
