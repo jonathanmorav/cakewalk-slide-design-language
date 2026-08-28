@@ -26,7 +26,7 @@ audience:
 timebox:                   # minutes, including Q&A
 date:                      # meeting date
 canonical: figma           # figma | google | dual
-export_to:                 # Drive/Slides URL, or none
+export_to:                 # ~/Cakewalk/slides/<file>.pptx, or none
 sources:                   # every source the agent actually read
   - kind: pocket | gmail | zoom | drive | calendar | slack | conversation
     id:

@@ -3,9 +3,10 @@ name: cakewalk-slides
 description: >-
   End-to-end Cakewalk slides: read the design language, pick a template from
   the library, fill a meeting deck from Gmail / Pocket / Zoom / Drive context,
-  build in Figma Slides, export toward Google. Use whenever the task involves
-  Cakewalk slides, a Figma Slides file, a board or weekly deck, recreating a
-  reference, or redesigning slides to the guidelines.
+  build in Figma Slides, export as an editable PowerPoint to
+  ~/Cakewalk/slides/. Use whenever the task involves Cakewalk slides, a
+  Figma Slides file, a board or weekly deck, recreating a reference, or
+  redesigning slides to the guidelines.
 ---
 
 # Cakewalk slides
@@ -59,7 +60,7 @@ Pass a self-contained prompt; they do not see this conversation.
 | Claims → library rows | `cakewalk-cast` | yes, readonly |
 | Draw in Figma | `cakewalk-build` | yes |
 | Validate + judgement | `cakewalk-critique` | yes, readonly |
-| Figma → Google | `cakewalk-export` | yes |
+| Figma → PowerPoint | `cakewalk-export` | yes |
 | Meeting slide → library | `cakewalk-promote` | yes |
 
 If the Task/Agent tool does not list a name, **run that agent file in-process**.
@@ -99,6 +100,7 @@ Then only the doc you need:
 | Recreate a reference | `docs/08-recreating-a-deck.md` |
 | Theme a new file | `docs/09-figma-theme.md` |
 | How a deck thinks | `docs/10-slide-method.md` |
+| Editable PowerPoint | `docs/11-export.md` |
 | Scan the library | `library/README.md` |
 
 ## Review gates
@@ -122,8 +124,12 @@ Then only the doc you need:
 - **"Redesign these to the guidelines"** → screenshot, diagnose against
   `docs/04` / `docs/01`, keep every word, `cakewalk-build`.
 - **"Recreate this deck"** → `docs/08-recreating-a-deck.md`, then `cakewalk-build`.
-- **"Put this in Google"** → `cakewalk-critique` then `cakewalk-export`.
-  PNG-and-place; no Slides write API.
+- **"Export" / "save as PowerPoint" / "put this on my computer"** →
+  `cakewalk-critique` then `cakewalk-export`. Editable `.pptx` only, to
+  `~/Cakewalk/slides/`. No PNG, no SVG, no picture-pptx.
+  [docs/11-export.md](../docs/11-export.md).
+- **"Put this in Google"** → same export first (editable pptx on disk).
+  Google is a later optional open of that file, not PNG-and-place.
 - **"Keep this as a template"** → `cakewalk-promote`.
 - **"Change a brand value"** → `tokens/tokens.json`, then `node tokens/gen-css.mjs`.
 

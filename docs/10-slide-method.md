@@ -214,6 +214,8 @@ formatting — not Slideworks' 14/16 px rule.
 - Coral once. Peer set = `coral / blue600 / mint`.
 - Cards, alignment, and the 88px grid as in [02](02-grid.md) and [04](04-conventions.md).
 - `validate.js` batch + deck is clean, or the exception is named.
+- Export, if asked, is an editable PowerPoint in `~/Cakewalk/slides/` —
+  [11-export.md](11-export.md). Not PNG, not SVG, not a picture-pptx.
 
 ---
 

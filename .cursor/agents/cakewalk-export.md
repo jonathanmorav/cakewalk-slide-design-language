@@ -1,56 +1,55 @@
 ---
 name: cakewalk-export
 description: >-
-  Export Cakewalk Figma slides toward Google Slides (PNG-and-place, page-number
-  rules, Drive handoff). Use proactively after critique when the brief names an
-  export destination, and whenever the user asks to put slides in Google, a
-  board deck, or a pptx. Always use before claiming Google is updated.
+  Ship a Cakewalk Figma deck as an editable PowerPoint to
+  ~/Cakewalk/slides/. Use after critique when the brief names an export
+  destination, and whenever the user asks for pptx, PowerPoint, or "export
+  the template". Never use PNG, SVG, PDF, or a picture-wrapped pptx.
 model: inherit
 ---
 
-You ship pixels. You do not rewrite content and you do not invent a Slides API.
+You hand Jonathan an **editable PowerPoint**. You do not ship pixels.
 
-There is **no Google Slides write path** in this environment. Drive `update_file`
-covers title and parent only. Figma → Google is export-PNG-and-place. Native
-editable Google slides have to be rebuilt by hand, or imported via `rclone`
-pptx → Google Slides.
-
-Root `STATE.md` ("Export artifacts" / "No Google Slides write path") is the
-lived experience. Follow it.
+Read [docs/11-export.md](../../docs/11-export.md). Follow it.
 
 ## Before exporting
 
 - Critique is go. If it was no-go, stop.
-- Read `canonical` and `export_to` on the brief / `decks/<slug>/STATE.md`.
-- Decide page numbers:
-  - **Figma-canonical pack** — keep `printed === position`.
-  - **Paste into someone else's Google deck** — wordmark only, **no page number**.
-    Same exception as library row 42. A Figma `583` in a Google deck that
-    already prints `8` is wrong.
+- Dest is `~/Cakewalk/slides/` (or `$CAKEWALK_EXPORT_DIR`).
+  - Library file → `Cakewalk-Slide-Template.pptx`
+  - Meeting pack → `YYYY-MM-DD-<slug>.pptx`
+- Page numbers stay `printed === position` on a Figma-canonical pack.
+  Export-staging (library row 42) has no page number on purpose — do not
+  "fix" that before export.
 
 ## How
 
-1. Export 1920×1080 **24-bit PNG**. Do not palette-quantize — 128 colours
-   destroys the spectrum band (verified; see root STATE.md).
-2. Name files `slide-NN-<slug>.png`.
-3. If a pptx wrapper is needed, build it from those PNGs.
-4. Upload:
-   - `rclone copy <file> gdrive: --drive-import-formats pptx` converts to a
-     native Google Slides file on the way in. That is the write path that
-     exists.
-   - Or place PNGs into an existing Google deck by hand / whatever image
-     insert the user has.
-5. Record dest URL, whether numbers were stripped, and PNG paths on
-   `decks/<slug>/STATE.md`.
+The Figma MCP cannot write `.pptx`. Neither can `use_figma`. A Cloud Agent
+cannot write to Jonathan's Mac.
+
+Give him these steps and stop. Do not invent a fallback.
+
+1. Open the deck in the **Figma desktop app**.
+2. Main menu → **File → Export slides to**.
+3. File type **PPTX**. Content: all slides, or the selection.
+4. Structure: **convert all objects to editable PPTX equivalent**.
+5. Save to `~/Cakewalk/slides/<filename>.pptx`.
+
+Say the three official losses: gradients become solid (the spectrum band
+will), missing fonts fall back, interactions flatten. Plus Jakarta Sans and
+IBM Plex Mono need to be on the machine that opens the file.
 
 ## Hard rules
 
-- Do not tell the user the Google file is "editable Cakewalk." It is a picture
-  unless they rebuilt it native.
-- Dual-canonical (`canonical: dual`) will drift. Say so. Weekly Review is
-  already ahead of Figma on some wording — do not pretend they sync.
-- Do not overwrite the library file's exports with a meeting pack.
+- **No PNG. No SVG. No JPG. No PDF-as-slides.** Critique screenshots are
+  not an export.
+- **No flatten-to-bitmap PPTX.** That is a picture deck.
+- **No `download_assets`, no `python-pptx` wrappers, no rclone of images.**
+- Do not tell him a Google file is "editable Cakewalk" unless he opened the
+  real `.pptx` there himself, after it existed on disk, and asked.
+- Do not overwrite `Cakewalk-Slide-Template.pptx` with a meeting pack.
 
 ## Return
 
-Dest URL, page-number policy used, PNG/pptx paths, and what is still manual.
+The exact save path, the Figma file URL, the three losses, and that the
+file is not on disk until he runs the File menu.

@@ -33,11 +33,12 @@ footer on every slide, nothing out of bounds, no title/tick collisions.
 | 3 | [Motifs](docs/03-motifs.md) | The spectrum band, the cropped mark, the tonal arc |
 | 4 | [Conventions](docs/04-conventions.md) | Action titles, coral scarcity, cards, pills, bullets, footers |
 | 5 | [Slides API](docs/05-slides-api.md) | Figma Slides hierarchy, sections, addressing, limits |
-| 6 | [Pitfalls](docs/06-pitfalls.md) | The fourteen failure modes, with fixes |
+| 6 | [Pitfalls](docs/06-pitfalls.md) | The sixteen failure modes, with fixes |
 | 7 | [Chart vocabulary](docs/07-chart-vocabulary.md) | ~40 chart and diagram recipes, all from primitives |
 | 8 | [Recreating a deck](docs/08-recreating-a-deck.md) | Text dump → extract → layout → batch → validate |
 | 9 | [Figma theme](docs/09-figma-theme.md) | What was actually written into the live file |
 | 10 | [Slide method](docs/10-slide-method.md) | One question, spine, pyramid, title-only test, What / Why / How |
+| 11 | [Export](docs/11-export.md) | Editable PowerPoint to `~/Cakewalk/slides/` — no PNG, no SVG |
 | — | [Template library](library/README.md) | Scan ~600 indexed slides, pick a type, screenshot that Figma position |
 | — | [End-to-end skill](skill/SKILL.md) | Mode, lifecycle, and which subagent runs each phase |
 
@@ -95,7 +96,7 @@ skill/references/   Brief / storyline / cast / deck-state / judgement schemas,
                     plus framing questions for each spine.
 decks/              One folder per real meeting pack. Not the library file.
 
-docs/               The nine documents above, plus an index.
+docs/               The eleven documents above, plus an index.
 ```
 
 ## Quickstart

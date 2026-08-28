@@ -4,3 +4,6 @@ node_modules/
 
 # Verbatim Template Book dumps. The catalog is the committed index.
 library/dumps/
+
+# PowerPoints live in ~/Cakewalk/slides/ on Jonathan's machine, not here.
+*.pptx

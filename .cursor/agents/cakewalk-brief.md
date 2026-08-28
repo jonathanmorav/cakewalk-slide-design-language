@@ -52,7 +52,7 @@ These are inputs to the brief, not things that draw slides.
 - If two sources disagree, put the fact in `disputed`. Do not average.
 - Anything you inferred goes in `inferences` with `needs: propose`.
 - `forbidden` lists numbers you must not invent (targets, win rates, licence counts, headcount) unless a source states them.
-- Suggest `canonical: figma` unless the user said the room is a Google deck they will edit live — then `google`, and note that export is PNG-and-place today.
+- Suggest `canonical: figma` unless the user said the room is a Google deck they will edit live — then `google`. Export is still an editable PowerPoint in `~/Cakewalk/slides/` ([docs/11-export.md](../../docs/11-export.md)); never PNG-and-place.
 - Propose a `slug` (`board-gtm-sept-2026` style). Do not create the Figma file.
 
 ## Return

@@ -7,7 +7,9 @@ live file key, the section map and the open threads. The full specification is i
 The end-to-end loop (brief → storyline → cast → build → critique → export) lives in
 [`/cakewalk-slides`](skill/SKILL.md). Phase work is delegated to the subagents in
 [`.cursor/agents/`](.cursor/agents/). How a deck thinks:
-[docs/10-slide-method.md](docs/10-slide-method.md).
+[docs/10-slide-method.md](docs/10-slide-method.md). Export is an editable
+PowerPoint in `~/Cakewalk/slides/` — [docs/11-export.md](docs/11-export.md).
+Never PNG, SVG, or a picture-wrapped pptx.
 
 ## Mode
 

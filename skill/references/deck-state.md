@@ -13,7 +13,7 @@ url:
 slides:
 rows:
 canonical: figma          # figma | google | dual
-export_to:
+export_to:                 # ~/Cakewalk/slides/<file>.pptx
 audience:
 decision:
 question:
@@ -29,7 +29,7 @@ meeting:
 <!-- judgements that still need Jonathan -->
 
 ## Export
-<!-- dest URL, whether page numbers were stripped, PNG paths -->
+<!-- dest path under ~/Cakewalk/slides/, Figma native editable PPTX, confirmed on disk? -->
 ```
 
 The library file keeps the root [`STATE.md`](../../STATE.md). Do not append
